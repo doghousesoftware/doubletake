@@ -1,0 +1,41 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DoubleTakeInventory.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DoubletakeConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">data source=50.22.153.229,778; UID=weinsteinsystem_dtuser; PWD=1234qwer!@#$</Value>
+    </Setting>
+    <Setting Name="weinsteinsystem_credentialsConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=50.22.153.229,778;Initial Catalog=weinsteinsystem_credentials;Persist Security Info=True;User ID=weinsteinsystem_admin;Password=1234qwer!@#$&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=50.22.153.229,778;Initial Catalog=weinsteinsystem_credentials;Persist Security Info=True;User ID=weinsteinsystem_admin;Password=1234qwer!@#$</Value>
+    </Setting>
+    <Setting Name="CompanyName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DoubleTake Vintage Clothing</Value>
+    </Setting>
+    <Setting Name="AddressLine1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1175 NWGilman Blvd Suite #B11</Value>
+    </Setting>
+    <Setting Name="AddressLine2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Issaquah, WA 98027</Value>
+    </Setting>
+    <Setting Name="AddressLine3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">(425) 392-4908 doubletakevintage@clear.net</Value>
+    </Setting>
+    <Setting Name="FooterLine1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">         No Returns or Exchanges</Value>
+    </Setting>
+    <Setting Name="FooterLine2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">         www.doubletakevintage.com</Value>
+    </Setting>
+    <Setting Name="ZebraLabel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NARROW</Value>
+    </Setting>
+    <Setting Name="MessageBoxTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Application Exception Message</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

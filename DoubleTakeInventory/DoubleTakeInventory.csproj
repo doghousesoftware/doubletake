@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{264B84D1-F22B-4EAD-A384-47138D367D64}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoubleTakeInventory</RootNamespace>
+    <AssemblyName>DoubleTakeInventory</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>E:\Publishing\DoubleTake\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://weinsteinsystems.blob.core.windows.net/doubletake/</InstallUrl>
+    <UpdateUrl>http://weinsteinsystems.blob.core.windows.net/doubletake/</UpdateUrl>
+    <ProductName>Consignment Inventory Management System</ProductName>
+    <PublisherName>weinsteinsystems</PublisherName>
+    <SuiteName>DoubleTake</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>79</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>089E6BF067551E1437B489112AC671963671756B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DoubleTakeInventory_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArchInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArchInventory.Designer.cs">
+      <DependentUpon>ArchInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCodePrinting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCodePrinting.Designer.cs">
+      <DependentUpon>BarCodePrinting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsignorClasses\ConsignorUtilities.cs" />
+    <Compile Include="DatabaseClass.cs" />
+    <Compile Include="DaysSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaysSales.Designer.cs">
+      <DependentUpon>DaysSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dbPOS.cs" />
+    <Compile Include="Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete.Designer.cs">
+      <DependentUpon>Delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DGInventory_Select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DGInventory_Select.Designer.cs">
+      <DependentUpon>DGInventory_Select.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoubletakeDataSet.cs">
+      <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DoubletakeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryClasses\InventoryUtilities.cs" />
+    <Compile Include="KeypadControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeypadControl.Designer.cs">
+      <DependentUpon>KeypadControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_InventorySelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_InventorySelect.Designer.cs">
+      <DependentUpon>Report_InventorySelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesRegisterForm.designer.cs">
+      <DependentUpon>SalesRegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalClass.cs" />
+    <Compile Include="NewConsignor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewConsignor.Designer.cs">
+      <DependentUpon>NewConsignor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewEventArgs.cs" />
+    <Compile Include="NewInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewInventory.Designer.cs">
+      <DependentUpon>NewInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewSales.Designer.cs">
+      <DependentUpon>NewSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments.Designer.cs">
+      <DependentUpon>Payments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PickedUpItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PickedUpItems.Designer.cs">
+      <DependentUpon>PickedUpItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pricing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pricing.Designer.cs">
+      <DependentUpon>Pricing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrinterSettings.Designer.cs">
+      <DependentUpon>PrinterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintRegister.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RegisterAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterAdjustment.designer.cs">
+      <DependentUpon>RegisterAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPrint.cs" />
+    <Compile Include="RegisterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterReport.Designer.cs">
+      <DependentUpon>RegisterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterReportSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterReportSelection.Designer.cs">
+      <DependentUpon>RegisterReportSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDaysSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDaysSales.Designer.cs">
+      <DependentUpon>ReportDaysSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportQueue.Designer.cs">
+      <DependentUpon>ReportQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_AllSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_AllSales.Designer.cs">
+      <DependentUpon>Report_AllSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_DueDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_DueDate.Designer.cs">
+      <DependentUpon>Report_DueDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Global.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Global.Designer.cs">
+      <DependentUpon>Report_Global.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_PaymentsDue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_PaymentsDue.Designer.cs">
+      <DependentUpon>Report_PaymentsDue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_RegisterSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_RegisterSales.Designer.cs">
+      <DependentUpon>Report_RegisterSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_ShopSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_ShopSales.Designer.cs">
+      <DependentUpon>Report_ShopSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Status.Designer.cs">
+      <DependentUpon>Report_Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnItems.Designer.cs">
+      <DependentUpon>ReturnItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesRegister.cs" />
+    <Compile Include="SearchResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchResults.Designer.cs">
+      <DependentUpon>SearchResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpcLabel.cs" />
+    <Compile Include="UpdateInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateInventory.Designer.cs">
+      <DependentUpon>UpdateInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RegisterControl.designer.cs">
+      <DependentUpon>RegisterControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArchInventory.resx">
+      <DependentUpon>ArchInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCodePrinting.resx">
+      <DependentUpon>BarCodePrinting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCodes.rdlc" />
+    <EmbeddedResource Include="ClothesDueDateReport.rdlc" />
+    <EmbeddedResource Include="ConsignorsDaysSales.rdlc" />
+    <EmbeddedResource Include="DaysSales.resx">
+      <DependentUpon>DaysSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete.resx">
+      <DependentUpon>Delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DGInventory_Select.resx">
+      <DependentUpon>DGInventory_Select.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeypadControl.resx">
+      <DependentUpon>KeypadControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_InventorySelect.resx">
+      <DependentUpon>Report_InventorySelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesRegisterForm.resx">
+      <DependentUpon>SalesRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewConsignor.resx">
+      <DependentUpon>NewConsignor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewInventory.resx">
+      <DependentUpon>NewInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSales.resx">
+      <DependentUpon>NewSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments.resx">
+      <DependentUpon>Payments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PickedUpItems.resx">
+      <DependentUpon>PickedUpItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pricing.resx">
+      <DependentUpon>Pricing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterSettings.resx">
+      <DependentUpon>PrinterSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RegisterAdjustment.resx">
+      <DependentUpon>RegisterAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterReport.resx">
+      <DependentUpon>RegisterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashRegister.rdlc" />
+    <EmbeddedResource Include="RegisterReportSelection.resx">
+      <DependentUpon>RegisterReportSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllSalesReport.rdlc" />
+    <EmbeddedResource Include="rpsShopSales.rdlc" />
+    <EmbeddedResource Include="Report_ShopSales.resx">
+      <DependentUpon>Report_ShopSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptInvoiceDetails.rdlc" />
+    <EmbeddedResource Include="ReportDaysSales.resx">
+      <DependentUpon>ReportDaysSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueue.resx">
+      <DependentUpon>ReportQueue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_AllSales.resx">
+      <DependentUpon>Report_AllSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_DueDate.resx">
+      <DependentUpon>Report_DueDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Global.resx">
+      <DependentUpon>Report_Global.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentsDue.rdlc" />
+    <EmbeddedResource Include="Report_PaymentsDue.resx">
+      <DependentUpon>Report_PaymentsDue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_RegisterSales.resx">
+      <DependentUpon>Report_RegisterSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Status.resx">
+      <DependentUpon>Report_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnItems.resx">
+      <DependentUpon>ReturnItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchResults.resx">
+      <DependentUpon>SearchResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoldStatusReport.rdlc" />
+    <EmbeddedResource Include="UpdateInventory.resx">
+      <DependentUpon>UpdateInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsignorGlobalReport.rdlc" />
+    <EmbeddedResource Include="RegisterControl.resx">
+      <DependentUpon>RegisterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DoubletakeDataSet.xsc">
+      <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DoubletakeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DoubletakeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DoubletakeDataSet.xss">
+      <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DoubleTakeInventory_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weinsteinsystemslogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.bmp" />
+    <Content Include="PrinterFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ReportViewer.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.Types">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
