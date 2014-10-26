@@ -195,8 +195,12 @@ namespace DoubleTakeInventory
                 newInventory.Consignor = int.Parse(txtConsignerID.Text.ToString());
                 newInventory.Description = dgInventory[0, iRowCount].Value.ToString();
                 newInventory.Price = decimal.Parse(dgInventory[1, iRowCount].Value.ToString());
-                newInventory.Comment = dgInventory[2, iRowCount].Value.ToString();
-
+                string comment = string.Empty;
+                if (dgInventory[2, iRowCount].Value != null)
+                {
+                    comment = dgInventory[2, iRowCount].Value.ToString();
+                }
+                newInventory.Comment = comment;
                 InventoryClasses.InventoryUtilities iu = new InventoryClasses.InventoryUtilities();
                 bool returnValue = iu.SaveInventory(newInventory);
                 if (!returnValue)

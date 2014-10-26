@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace DoubleTakeInventory
 {
-    public class SoldLineItem : INotifyPropertyChanged
+    public class SoldLineItem
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         private int lineitemid;
         public int LineItemID { 
             get
@@ -20,7 +16,6 @@ namespace DoubleTakeInventory
             set
             {
                 lineitemid = value;
-                OnPropertyChanged("LineItemID");
             }
         }
         
@@ -34,7 +29,6 @@ namespace DoubleTakeInventory
             set
             {
                 itemid = value;
-                OnPropertyChanged("ItemID");
             }
         }
 
@@ -48,7 +42,6 @@ namespace DoubleTakeInventory
             set
             {
                 description = value;
-                OnPropertyChanged("Description");
             }
         }
 
@@ -62,7 +55,6 @@ namespace DoubleTakeInventory
             {
                 price = value;
                 extended = Price * Quantity;
-                OnPropertyChanged("Description");
             } 
         }
 
@@ -76,7 +68,6 @@ namespace DoubleTakeInventory
             {
                 quantity = value;
                 extended = Price * Quantity;
-                OnPropertyChanged("Quantity");
             }
         }
         
@@ -90,31 +81,18 @@ namespace DoubleTakeInventory
             set
             {
                 extended = value;
-                OnPropertyChanged("Extended");
-            }
-        }
-
-        // Create the OnPropertyChanged method to raise the event 
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }
 
 
-    public class Register : INotifyPropertyChanged 
+    public class Register 
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<SoldLineItem> Sale = new ObservableCollection<SoldLineItem>();
+        public List<SoldLineItem> Sale = new List<SoldLineItem>();
         
         public void Add(SoldLineItem _lineitem)
         {
             Sale.Add(_lineitem);
-            OnPropertyChanged("Sale");
         }
 
         public void Update(int RowID, double Price, int Quantity)
@@ -128,7 +106,6 @@ namespace DoubleTakeInventory
                     item.Extended = item.Quantity * item.Price;
                 }
             }
-            OnPropertyChanged("Sale");
         }
 
         public SoldLineItem GetOneLine(int RowID)
@@ -162,7 +139,6 @@ namespace DoubleTakeInventory
                     item.LineItemID--;
                 }
             }
-            OnPropertyChanged("Sale");
         }
 
         /// <summary>
@@ -176,19 +152,8 @@ namespace DoubleTakeInventory
             {
                 salesrow.Extended = salesrow.Price * salesrow.Quantity;
                 dSubTotal += salesrow.Extended;
-
             }
             return dSubTotal;
-        }
-
-        
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
         }
     }
 }
