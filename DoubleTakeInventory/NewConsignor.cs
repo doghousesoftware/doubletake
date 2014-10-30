@@ -35,14 +35,12 @@ namespace DoubleTakeInventory
                         NewInventory newForm = new NewInventory();
                         newForm.MdiParent = this.MdiParent;
                         newForm.Show();
-
                     }
                 }
                 else
                 {
                     MessageBox.Show("Incomplete data entered", "New Consignor", MessageBoxButtons.OK);
                 }
-                
             }
             else
             {
@@ -105,7 +103,20 @@ namespace DoubleTakeInventory
             ConsignorClasses.ConsignorUtilities cu = new ConsignorClasses.ConsignorUtilities();
 
             // set the updated consignor
-
+            c.Address1City = txtCity.Text;
+            c.Address1State = txtState.Text;
+            c.Address1Street = txtAddress.Text;
+            c.Address1Zip = txtZipCode.Text;
+            c.CellPhone = txtCellPhone.Text;
+            c.Comments = txtComments.Text;
+            c.ConsignorID = int.Parse(txtConsignorID.Text);
+            c.Donate = ckDonate.Checked;
+            c.EmailAddress = txtemail.Text;
+            c.FirstName = txtFirstName.Text;
+            c.HomePhone = txtHomePhone.Text;
+            c.LastName = txtLastName.Text;
+            c.WorkPhone = txtWorkPhone.Text;
+            
             // update the consignor
             bool result = cu.Consignor_Update(c);
             ClearConsignor();
@@ -123,7 +134,6 @@ namespace DoubleTakeInventory
                 lblConsignorID.Visible = true;
                 txtConsignorID.Visible = true;
                 GetConsignor(GlobalClass.ConsignerID);
-                
             }
             else
             {
@@ -132,7 +142,6 @@ namespace DoubleTakeInventory
                 //allow new consignor to be entered
             }
             gc.ClearEverything();
-            
         }
         
         private void GetConsignor(int ConsignorID)

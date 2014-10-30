@@ -7,9 +7,6 @@ using System.Data.SqlClient;
 
 namespace DoubleTakeInventory.ConsignorClasses
 {
-   
-
-
     public class ConsignorUtilities
     {
         /// <summary>
