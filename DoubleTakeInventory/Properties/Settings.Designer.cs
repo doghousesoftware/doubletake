@@ -25,18 +25,17 @@ namespace DoubleTakeInventory.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=50.22.153.229,778; UID=weinsteinsystem_dtuser; PWD=1234qwer!@#$")]
-        public string DoubletakeConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute(@"IdROujQ3mH9ZCuTY0SvGOdhzoQ3CTU7LLC80uJdh4nfhcVmLzF0E7vI37Q8TyOBiIDtXeIyC4WKq4Eozrzr6NRW3b9w0sqxCN1oYuxqWUt1Y/Sl3EWipoY/cichxh1vFLg1fg8VV7Cx0lGW4MC2SVhlkuaQen4+b3w5W3R8VULWDuOaMXxh7kzqmHvLI71kJt/yhYiZfVCZqeMzvES0Ryf/H8xJOTkKwzr1sT4q+p0UG8FKF5mawAhz7+SQlS9DawppKvMEuO8paXsnh0rE9b8Zw2z9zBe2Ia0CWBWmkac8=")]
+        public string xxxDoubletakeConnectionString {
             get {
-                return ((string)(this["DoubletakeConnectionString"]));
+                return ((string)(this["xxxDoubletakeConnectionString"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=50.22.153.229,778;Initial Catalog=weinsteinsystem_credentials;Persist" +
-            " Security Info=True;User ID=weinsteinsystem_admin;Password=1234qwer!@#$")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"IdROujQ3mH9ZCuTY0SvGOdhzoQ3CTU7LLC80uJdh4nfhcVmLzF0E7vI37Q8TyOBiIDtXeIyC4WKq4Eozrzr6NRW3b9w0sqxCN1oYuxqWUt1Y/Sl3EWipoY/cichxh1vFLg1fg8VV7Cx0lGW4MC2SVhlkuaQen4+b3w5W3R8VULWDuOaMXxh7kzqmHvLI71kJt/yhYiZfVCZqeMzvES0Ryf/H8xJOTkKwzr1sT4q+p0UG8FKF5mawAhz7+SQlS9DawppKvMEuO8paXsnh0rE9b8Zw2z9zBe2Ia0CWBWmkac8=")]
         public string weinsteinsystem_credentialsConnectionString {
             get {
                 return ((string)(this["weinsteinsystem_credentialsConnectionString"]));
@@ -112,6 +111,15 @@ namespace DoubleTakeInventory.Properties {
         public string MessageBoxTitle {
             get {
                 return ((string)(this["MessageBoxTitle"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DebugMode {
+            get {
+                return ((bool)(this["DebugMode"]));
             }
         }
     }
