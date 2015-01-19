@@ -22,18 +22,27 @@ namespace DoubleTakeInventory
         public MDIParent1()
         {
             InitializeComponent();
+            
+            // set the global connection string here
+            Decode d = new Decode();
+            if (Properties.Settings.Default.DebugMode)
+            {
+                d.Initialize("DoubleTakeTest");
+            }
+            else
+            {
+                d.Initialize("DoubleTake");
+            }
+            
+            
             dbPOS POSdb = new dbPOS();
-            if (POSdb.SalesTaxRate() == -100)
+            GlobalClass.SalesTax = POSdb.SalesTaxRate();
+            if (GlobalClass.SalesTax == -100)
             {
                 //failure to connect and get tax rate
                 MessageBox.Show("Unable to reach SQL Database connection - please insure network connectivity exists.  System will now exit.", "NETWORK CONNECTION ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Environment.Exit(0);
             }
-            else
-            {
-                GlobalClass.SalesTax = POSdb.SalesTaxRate();
-            }
-            
             string strFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DoubleTakePrinterAssignments.xml");
             if (File.Exists(strFilename) == true)
             {
@@ -96,7 +105,6 @@ namespace DoubleTakeInventory
             childForm.Show();
         }
 
-       
         
         private void addInventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -157,7 +165,6 @@ namespace DoubleTakeInventory
             }
         }
 
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             toolStripButton1Action();
@@ -177,7 +184,6 @@ namespace DoubleTakeInventory
                 SR.Show();
             }
         }
-
 
         private void enterSalesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -218,7 +224,6 @@ namespace DoubleTakeInventory
         }
 
        
-
         private void enterPaymentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GlobalClass.ConsignerID = 0;
@@ -241,7 +246,6 @@ namespace DoubleTakeInventory
             UI.Show();
         }
 
-        
 
         private void reportsMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -251,7 +255,6 @@ namespace DoubleTakeInventory
         }
 
         
-
         private void returnItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ReturnItems childForm = new ReturnItems();
@@ -270,30 +273,23 @@ namespace DoubleTakeInventory
         {
             toolStripTextBox1.KeyPress +=new KeyPressEventHandler(keypressed1);
             toolStripTextBox2.KeyPress +=new KeyPressEventHandler(keypressed2);
-            
-            
         }
 
         private void keypressed1(Object o, KeyPressEventArgs e)
         {
-
             if ((e.KeyChar == (char)Keys.Return) | (e.KeyChar == (char)Keys.Enter))
             {
                     //looking for consignor
                     toolStripButton2Action();
-                
             }
         }
 
         private void keypressed2(Object o, KeyPressEventArgs e)
         {
-
             if ((e.KeyChar == (char)Keys.Return) | (e.KeyChar == (char)Keys.Enter))
             {
-                
                     //looking for inventory
                     toolStripButton1Action();
-                
             }
         }
 
@@ -360,15 +356,12 @@ namespace DoubleTakeInventory
         private void checkForSoftwareUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateCheckInfo info = null;
-
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 ApplicationDeployment ad = ApplicationDeployment.CurrentDeployment;
-
                 try
                 {
                     info = ad.CheckForDetailedUpdate();
-
                 }
                 catch (DeploymentDownloadException dde)
                 {

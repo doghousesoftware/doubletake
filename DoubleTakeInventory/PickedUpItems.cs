@@ -48,7 +48,7 @@ namespace DoubleTakeInventory
 
         private void LoadGrid()
         {
-             SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+             SqlConnection cn = new SqlConnection(Decode.ConnectionString);
              SqlCommand cmd = new SqlCommand("DTUSER.ReturnItems_Select");
              SqlDataReader dr;
              cmd.CommandType = CommandType.StoredProcedure;
@@ -140,8 +140,7 @@ namespace DoubleTakeInventory
 
         private bool SaveRows(int SaveAction)
         {
-
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.PickedUpItems_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             

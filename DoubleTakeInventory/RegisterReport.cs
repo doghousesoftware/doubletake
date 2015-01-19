@@ -19,6 +19,9 @@ namespace DoubleTakeInventory
         private void RegisterReport_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DoubletakeDataSet.SalesRegister_Select' table. You can move, or remove it, as needed.
+            var constrg = new Decode();
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.Decrypt(Properties.Settings.Default.weinsteinsystem_credentialsConnectionString));
+            this.SalesRegister_SelectTableAdapter.Connection = con;
             this.SalesRegister_SelectTableAdapter.Fill(this.DoubletakeDataSet.SalesRegister_Select, GlobalClass.RegisterStart, GlobalClass.RegisterEnd);
             this.reportViewer1.RefreshReport();
         }

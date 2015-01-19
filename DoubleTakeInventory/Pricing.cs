@@ -105,7 +105,7 @@ namespace DoubleTakeInventory
 
         private bool SavePricingData()
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Pricing_Update");
             cmd.CommandType = CommandType.StoredProcedure;
             
@@ -156,7 +156,7 @@ namespace DoubleTakeInventory
 
         private bool SaveWaitingToPrint()
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.WaitingToPrint_Clear");
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -249,7 +249,7 @@ namespace DoubleTakeInventory
 
         private void GetUnpricedItems()
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.UnPricedItem_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

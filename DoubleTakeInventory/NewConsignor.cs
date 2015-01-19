@@ -146,53 +146,37 @@ namespace DoubleTakeInventory
         
         private void GetConsignor(int ConsignorID)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
-            SqlCommand cmd = new SqlCommand("DTUSER.GetConsignor_Select");
-            SqlDataReader dr;
-            cmd.CommandType = CommandType.StoredProcedure;
+            ConsignorClasses.ConsignorUtilities u = new ConsignorClasses.ConsignorUtilities();
+            var returnedConsignor = new ConsignorClasses.Consignor();
+            returnedConsignor = u.GetExistingConsignor(ConsignorID);
 
-            try
-            {
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.Parameters.Add("@pConsignorID", SqlDbType.VarChar).Value = ConsignorID;
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    txtConsignorID.Text = ConsignorID.ToString();
-                    txtLastName.Text = dr.GetValue(0).ToString();
-                    txtFirstName.Text = dr.GetValue(1).ToString();
-                    txtAddress.Text = dr.GetValue(2).ToString();
-                    txtCity.Text = dr.GetValue(3).ToString();
-                    txtState.Text = dr.GetValue(4).ToString();
-                    txtZipCode.Text = dr.GetValue(5).ToString();
-                    txtHomePhone.Text = dr.GetValue(6).ToString();
-                    txtWorkPhone.Text = dr.GetValue(7).ToString();
-                    txtCellPhone.Text = dr.GetValue(8).ToString();
-                    txtemail.Text = dr.GetValue(9).ToString();
-                    txtComments.Text = dr.GetValue(10).ToString();
-                    ckDonate.Checked = dr.GetBoolean(11);
-
-                }
-                
-            }
-            catch (SqlException sx)
-            {
-                MessageBox.Show(sx.Message.ToString(), "SQL Data Error", MessageBoxButtons.OK);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), "C# Error", MessageBoxButtons.OK);
-            }
-            finally
-            {
-                if ( cn.State != ConnectionState.Closed)
-                {
-                    cn.Close();
-                }
-            }
-            //now clear the consignor
+            // check for C# exceptions
+            if (returnedConsignor.LastName.Contains("SQL Exception"))
+	        {
+		        MessageBox.Show(returnedConsignor.Comments, "SQL Data Error", MessageBoxButtons.OK);
+                ClearConsignor();
+	        }
+            else if (returnedConsignor.LastName.Contains("C# Exception"))
+	        {
+		        MessageBox.Show(returnedConsignor.Comments, "C# Error", MessageBoxButtons.OK);
+                ClearConsignor();
+	        }
+            else
+	        {
+                txtConsignorID.Text = ConsignorID.ToString();
+                txtLastName.Text = returnedConsignor.LastName;
+                txtFirstName.Text = returnedConsignor.FirstName;
+                txtAddress.Text = returnedConsignor.Address1Street;
+                txtCity.Text = returnedConsignor.Address1City;
+                txtState.Text = returnedConsignor.Address1State;
+                txtZipCode.Text = returnedConsignor.Address1Zip;
+                txtHomePhone.Text = returnedConsignor.HomePhone;
+                txtWorkPhone.Text = returnedConsignor.WorkPhone;
+                txtCellPhone.Text = returnedConsignor.CellPhone;
+                txtemail.Text = returnedConsignor.EmailAddress;
+                txtComments.Text = returnedConsignor.Comments;
+                ckDonate.Checked = returnedConsignor.Donate;
+	        }
             ClearConsignor();
         }
 
@@ -206,6 +190,5 @@ namespace DoubleTakeInventory
             //now clear the consignor
             GlobalClass.ConsignerID = 0;
         }
-         
     }
 }

@@ -207,7 +207,7 @@
             // cboSoldStatus
             // 
             this.cboSoldStatus.FormattingEnabled = true;
-            this.cboSoldStatus.Location = new System.Drawing.Point(265, 159);
+            this.cboSoldStatus.Location = new System.Drawing.Point(293, 163);
             this.cboSoldStatus.Name = "cboSoldStatus";
             this.cboSoldStatus.Size = new System.Drawing.Size(200, 21);
             this.cboSoldStatus.TabIndex = 9;

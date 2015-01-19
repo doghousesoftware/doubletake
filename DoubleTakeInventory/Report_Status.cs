@@ -19,8 +19,10 @@ namespace DoubleTakeInventory
         private void Report_Status_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DoubletakeDataSet.SoldStatus_Report' table. You can move, or remove it, as needed.
+            var constrg = new Decode();
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.Decrypt(Properties.Settings.Default.weinsteinsystem_credentialsConnectionString));
+            this.SoldStatus_ReportTableAdapter.Connection = con;
             this.SoldStatus_ReportTableAdapter.Fill(this.DoubletakeDataSet.SoldStatus_Report, GlobalClass.WhateverInt);
-
             this.reportViewer1.RefreshReport();
         }
     }

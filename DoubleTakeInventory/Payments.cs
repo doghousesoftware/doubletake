@@ -47,7 +47,7 @@ namespace DoubleTakeInventory
 
         private bool SavePayments()
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Payment_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -139,7 +139,7 @@ namespace DoubleTakeInventory
             string sSaleDate;
             double sSaleAmount;
             //sql code to load consignor
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ConsignorSales_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -434,7 +434,7 @@ namespace DoubleTakeInventory
         private void GetPayRate()
         {
             //sql code to load consignor
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.PayRate_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

@@ -45,6 +45,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.managePaymentsAndPickupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -86,10 +87,11 @@
             this.updateConsignorToolStripMenuItem,
             this.enterNewInventoryToolStripMenuItem,
             this.updateConsignorsInventoryToolStripMenuItem,
+            this.managePaymentsAndPickupsToolStripMenuItem,
             this.reportThisConsignorToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(507, 184);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(507, 242);
             // 
             // updateConsignorToolStripMenuItem
             // 
@@ -178,6 +180,13 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // managePaymentsAndPickupsToolStripMenuItem
+            // 
+            this.managePaymentsAndPickupsToolStripMenuItem.Name = "managePaymentsAndPickupsToolStripMenuItem";
+            this.managePaymentsAndPickupsToolStripMenuItem.Size = new System.Drawing.Size(506, 36);
+            this.managePaymentsAndPickupsToolStripMenuItem.Text = "Manage Payments and Pickups";
+            this.managePaymentsAndPickupsToolStripMenuItem.Click += new System.EventHandler(this.managePaymentsAndPickupsToolStripMenuItem_Click);
+            // 
             // SearchResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,5 +225,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem managePaymentsAndPickupsToolStripMenuItem;
     }
 }

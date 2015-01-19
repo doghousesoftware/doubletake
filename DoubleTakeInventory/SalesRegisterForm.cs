@@ -448,7 +448,7 @@ namespace DoubleTakeInventory
         private SoldLineItem BarCodeScan(int ItemID)
         {
             SoldLineItem returnitem = new SoldLineItem();
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("dtuser.UnSoldItemID_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

@@ -17,7 +17,7 @@ namespace DoubleTakeInventory.ConsignorClasses
         public virtual int AddNewConsignor(Consignor newconsignor)
         {
             int count;
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.NewConsignor_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);
@@ -73,7 +73,7 @@ namespace DoubleTakeInventory.ConsignorClasses
         public virtual bool Consignor_Update(Consignor c)
         {
             bool returnValue = false;
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Consignor_Update");
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -100,11 +100,12 @@ namespace DoubleTakeInventory.ConsignorClasses
             catch (SqlException sx)
             {
                 Console.WriteLine(sx);
-
+                returnValue = false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                returnValue = false;
             }
             finally
             {
@@ -122,10 +123,10 @@ namespace DoubleTakeInventory.ConsignorClasses
         /// </summary>
         /// <param name="consignorID"></param>
         /// <returns></returns>
-        public bool ValidConsignor(string consignorID)
+        public virtual bool ValidConsignor(string consignorID)
         {
             bool returnValue = false;
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ConsignorTest");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnParam = new SqlParameter("@Return_Value", DbType.Int32);
@@ -162,6 +163,60 @@ namespace DoubleTakeInventory.ConsignorClasses
             }
             return returnValue;
         }
+
+        public Consignor GetExistingConsignor(int ConsignorID)
+        {
+            var returnConsignor = new Consignor();
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            SqlCommand cmd = new SqlCommand("DTUSER.GetConsignor_Select");
+            SqlDataReader dr;
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.Parameters.Add("@pConsignorID", SqlDbType.VarChar).Value = ConsignorID;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    returnConsignor.ConsignorID = ConsignorID;
+                    returnConsignor.LastName = dr.GetValue(0).ToString();
+                    returnConsignor.FirstName = dr.GetValue(1).ToString();
+                    returnConsignor.Address1Street = dr.GetValue(2).ToString();
+                    returnConsignor.Address1City = dr.GetValue(3).ToString();
+                    returnConsignor.Address1State = dr.GetValue(4).ToString();
+                    returnConsignor.Address1Zip = dr.GetValue(5).ToString();
+                    returnConsignor.HomePhone = dr.GetValue(6).ToString();
+                    returnConsignor.WorkPhone = dr.GetValue(7).ToString();
+                    returnConsignor.CellPhone = dr.GetValue(8).ToString();
+                    returnConsignor.EmailAddress = dr.GetValue(9).ToString();
+                    returnConsignor.Comments = dr.GetValue(10).ToString();
+                    returnConsignor.Donate = dr.GetBoolean(11);
+                }
+            }
+            catch (SqlException sx)
+            {
+                // return an empty consingor
+                var falseConsignor = new Consignor();
+                returnConsignor.LastName = "SQL Exception";
+                returnConsignor.Comments = sx.Message;
+            }
+            catch (Exception ex)
+            {
+                // return an empty consingor
+                var falseConsignor = new Consignor();
+                returnConsignor.LastName = "C# Exception";
+                returnConsignor.Comments = ex.Message;
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+            }
+            return returnConsignor;
+        }
     }
 
 
@@ -182,5 +237,4 @@ namespace DoubleTakeInventory.ConsignorClasses
         public bool Donate {get;set;}
         public string CreateBy { get; set; }
     }
-
 }

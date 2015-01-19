@@ -111,7 +111,7 @@ namespace DoubleTakeInventory
         /// </summary>
         private void LoadComboBox()
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.SoldStatusComboBox");
             SqlDataReader dr;
             try
@@ -362,9 +362,9 @@ namespace DoubleTakeInventory
         {
             if (txtItemID.Text != string.Empty)
             {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
-            SqlCommand cmd = new SqlCommand("DTUSER.WaitingToPrint_Insert");
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+                SqlCommand cmd = new SqlCommand("DTUSER.WaitingToPrint_Insert");
+                cmd.CommandType = CommandType.StoredProcedure;
             
             try
             {

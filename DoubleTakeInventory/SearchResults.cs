@@ -17,14 +17,11 @@ namespace DoubleTakeInventory
         public SearchResults()
         {
             InitializeComponent();
-            
-            
         }
 
         private void dataGridView1_OnCellClick(object sender, DataGridViewCellEventArgs e)
         {
             iRowClick = e.RowIndex;
-
         }
 
         private void SearchResults_Resize(object sender, EventArgs e)
@@ -73,7 +70,7 @@ namespace DoubleTakeInventory
 
         private void SearchBarCodeID(string BarCode)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ItemDescription_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -99,7 +96,6 @@ namespace DoubleTakeInventory
                                                 dr.GetValue(5).ToString(),
                                                 dr.GetSqlMoney(3),
                                                 ConvertDateTime(dr.GetSqlDateTime(4).Value));
-
                     }
                     
                 }
@@ -126,10 +122,6 @@ namespace DoubleTakeInventory
                     cn.Close();
                 }
             }
-            
-            
-
-           
         }
 
 
@@ -161,7 +153,7 @@ namespace DoubleTakeInventory
 
         private void SearchConsignerName(string CName)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ConsignorNames_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -183,15 +175,14 @@ namespace DoubleTakeInventory
                     {
                         dataGridView1.Rows.Add(dr.GetSqlInt32(0),
                                                 dr.GetValue(1).ToString(),
-                                                dr.GetValue(2).ToString());
-
+                                                dr.GetValue(2).ToString(),
+                                                dr.GetSqlMoney(3),
+                                                dr.GetValue(4));
                     }
                 }
                 else
                 {
                     MessageBox.Show("No Consignor Found With that Search", "Search", MessageBoxButtons.OK);
-                   
-                    
                 }
 
             }
@@ -211,13 +202,11 @@ namespace DoubleTakeInventory
                     cn.Close();
                 }
             }
-            
-            
         }
 
         private void SearchConsignorID(int CID)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.GetConsignorInventory");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -232,9 +221,7 @@ namespace DoubleTakeInventory
 
                 if (dr.HasRows == true)
                 {
-                    
                     SetGridHeader(2);
-
                     while (dr.Read())
                     {
                         dataGridView1.Rows.Add(dr.GetValue(0).ToString(),
@@ -254,15 +241,11 @@ namespace DoubleTakeInventory
                 else
                 {
                     MessageBox.Show("No Inventory Found With that Search", "Search", MessageBoxButtons.OK);
-                   
-
                 }
-
             }
             catch (SqlException sx)
             {
                 MessageBox.Show(sx.Message.ToString(), "SQL Data Error", MessageBoxButtons.OK);
-
             }
             catch (Exception ex)
             {
@@ -275,11 +258,7 @@ namespace DoubleTakeInventory
                     cn.Close();
                 }
             }
-
-
         }
-
-
 
 
         private void SetGridHeader(int HType)
@@ -297,6 +276,15 @@ namespace DoubleTakeInventory
                 dataGridView1.Columns.Add("Column02", "First Name");
                 dataGridView1.Columns["Column02"].Visible = true;
                 dataGridView1.Columns["Column02"].Width = 100;
+
+                dataGridView1.Columns.Add("Column03", "Amount Due");
+                dataGridView1.Columns["Column03"].Visible = true;
+                dataGridView1.Columns["Column03"].Width = 100;
+                dataGridView1.Columns["Column03"].DefaultCellStyle.Format = "$#.00";
+
+                DataGridViewCheckBoxColumn col4 = new DataGridViewCheckBoxColumn();
+                col4.HeaderText = "Pickups";
+                dataGridView1.Columns.Add(col4);
 
             }
 
@@ -327,20 +315,12 @@ namespace DoubleTakeInventory
                 dataGridView1.Columns.Add("Column04", "Date In");
                 dataGridView1.Columns["Column04"].Visible = true;
                 dataGridView1.Columns["Column04"].Width = 100;
-
-                
-
-
-               
             }
-            
 
             dataGridView1.ContextMenuStrip = null;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-
-
         }
 
         private void updateConsignorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -378,7 +358,6 @@ namespace DoubleTakeInventory
         {
             if (iRowClick != -9)
             {
-                
                 //WE SHOW THE LIST OF INVENTORY FOR THAT CONSIGNOR
                 //WHICH IS A TYPE OF ITEM SEARCH
                 GlobalClass.ConsignerID = int.Parse(dataGridView1[0, iRowClick].Value.ToString());
@@ -389,10 +368,6 @@ namespace DoubleTakeInventory
                 SearchResults SR = new SearchResults();
                 SR.MdiParent = this.MdiParent;
                 SR.Show();
-                
-
-                
-
             }
             else
             {
@@ -411,7 +386,6 @@ namespace DoubleTakeInventory
                 iRowClick = -9;
                 this.Close();
             }
-            
         }
                
 
@@ -463,7 +437,6 @@ namespace DoubleTakeInventory
             {
                 iRowClick = -9;
             }
-
             
         }
 
@@ -477,7 +450,11 @@ namespace DoubleTakeInventory
                 RG.MdiParent = this.MdiParent;
                 RG.Show();
             }
+        }
 
+        private void managePaymentsAndPickupsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("New Payment and Pickup Screen Here");
         }
     }
 }

@@ -258,7 +258,6 @@
             this.Controls.Add(this.button1);
             this.Name = "Delete";
             this.Text = "Key Data Change - Caution!";
-            this.Load += new System.EventHandler(this.Delete_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

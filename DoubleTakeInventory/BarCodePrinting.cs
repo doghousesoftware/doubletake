@@ -32,7 +32,7 @@ namespace DoubleTakeInventory
         {
             UPCLabel.UpcLabel mylabel = new UPCLabel.UpcLabel();
             string sprice;
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString); 
             SqlCommand cmd = new SqlCommand("DTUSER.BarCodePrint_Select");
             SqlDataReader dr ;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -80,7 +80,7 @@ namespace DoubleTakeInventory
 
             if (DR == DialogResult.Yes)
             {
-                SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+                SqlConnection cn = new SqlConnection(Decode.ConnectionString);
                 SqlCommand cmd = new SqlCommand("DTUSER.WaitingToPrint_Clear");
                 
                 try

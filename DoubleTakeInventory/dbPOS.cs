@@ -12,8 +12,8 @@ namespace DoubleTakeInventory
     {
         public double SalesTaxRate()
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
-            SqlCommand cmd = new SqlCommand("dtuser.SalesTaxRate_Select");
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString); 
+            SqlCommand cmd = new SqlCommand("DTUser.SalesTaxRate_Select");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Decimal);
             returnValue.Direction = ParameterDirection.ReturnValue;
@@ -29,7 +29,7 @@ namespace DoubleTakeInventory
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    iReturn = double.Parse(dr.GetSqlDecimal(0).Value.ToString());
+                    iReturn = (double)dr.GetSqlDecimal(0).Value;
                 }
                 return iReturn;
             }

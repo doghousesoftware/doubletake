@@ -2,6 +2,10 @@
     
     
     public partial class DoubletakeDataSet {
+        partial class ShopInventory_SelectDataTable
+        {
+        }
+    
         partial class PaymentsDueDataTable
         {
         }

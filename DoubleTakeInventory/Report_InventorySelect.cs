@@ -21,9 +21,10 @@ namespace DoubleTakeInventory
             // TODO: This line of code loads data into the 'DoubletakeDataSet.Inventory_Select' table. You can move, or remove it, as needed.
             DateTime startDate = GlobalClass.RegisterStart;
             DateTime endDate = GlobalClass.RegisterEnd;
-
+            var constrg = new Decode();
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.Decrypt(Properties.Settings.Default.weinsteinsystem_credentialsConnectionString));
+            this.Inventory_SelectTableAdapter.Connection = con;
             this.Inventory_SelectTableAdapter.Fill(this.DoubletakeDataSet.Inventory_Select, 0, startDate, endDate);
-
             this.reportViewer1.RefreshReport();
         }
 

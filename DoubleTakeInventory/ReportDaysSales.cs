@@ -19,6 +19,9 @@ namespace DoubleTakeInventory
         private void ReportDaysSales_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DoubletakeDataSet.ConsignorDaysSales' table. You can move, or remove it, as needed.
+            var constrg = new Decode();
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.Decrypt(Properties.Settings.Default.weinsteinsystem_credentialsConnectionString));
+            this.ConsignorDaysSalesTableAdapter.Connection = con;
             this.ConsignorDaysSalesTableAdapter.Fill(this.DoubletakeDataSet.ConsignorDaysSales, GlobalClass.ConsignerID);
             this.reportViewer1.RefreshReport();
         }

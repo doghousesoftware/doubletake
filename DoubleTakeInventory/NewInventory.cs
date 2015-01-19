@@ -202,8 +202,8 @@ namespace DoubleTakeInventory
                 }
                 newInventory.Comment = comment;
                 InventoryClasses.InventoryUtilities iu = new InventoryClasses.InventoryUtilities();
-                bool returnValue = iu.SaveInventory(newInventory);
-                if (!returnValue)
+                int returnValue = iu.SaveInventory(newInventory);
+                if (returnValue == -1)
                 {
                     return false;
                 }

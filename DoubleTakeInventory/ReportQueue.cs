@@ -37,7 +37,7 @@ namespace DoubleTakeInventory
 
         private void LoadComboBox_Status()
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString); 
             SqlCommand cmd = new SqlCommand("DTUSER.SoldStatusComboBox");
             SqlDataReader dr;
             try
@@ -97,7 +97,7 @@ namespace DoubleTakeInventory
 
         private int AllSalesProc(DateTime StartDate, DateTime EndDate)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.AllSales_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);
@@ -179,7 +179,5 @@ namespace DoubleTakeInventory
             tempReport.MdiParent = this.MdiParent;
             tempReport.Show();
         }
-
-        
     }
 }

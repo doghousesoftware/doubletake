@@ -11,12 +11,14 @@ namespace DoubleTakeInventory.InventoryClasses
     
     public class InventoryUtilities
     {
-        public virtual bool SaveInventory(InventoryObject newInventory)
+        public int SaveInventory(InventoryObject newInventory)
         {
-            bool returnValue = false;
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            int newInventoryID = 0;
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Inventory_Insert");
-
+            SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);
+            returnValue.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(returnValue);
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -36,11 +38,11 @@ namespace DoubleTakeInventory.InventoryClasses
                 
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
-                returnValue = true;
+                newInventoryID = (int)returnValue.Value;
             }
             catch (Exception)
             {
-                throw;
+                newInventoryID = -1;
             }
             finally
             {
@@ -49,14 +51,14 @@ namespace DoubleTakeInventory.InventoryClasses
                     cn.Close();
                 }
             }
-            return returnValue;
+            return newInventoryID;
         }
 
 
         public InventoryObject GetInventoryDetails(string itemID)
         {
             InventoryObject returnItem = new InventoryObject();
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ItemID_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -147,7 +149,7 @@ namespace DoubleTakeInventory.InventoryClasses
         /// <returns></returns>
         public bool UpdateInventory(InventoryObject io)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Inventory_Update");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);
@@ -203,8 +205,6 @@ namespace DoubleTakeInventory.InventoryClasses
         }
     }
 
-
-
     /// <summary>
     /// this is the main object for holding any inventory 
     /// </summary>
@@ -225,5 +225,4 @@ namespace DoubleTakeInventory.InventoryClasses
         public string ConsignorName { get; set; }
         public bool Donate { get; set; }
     }
-
 }

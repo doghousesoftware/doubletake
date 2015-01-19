@@ -19,8 +19,10 @@ namespace DoubleTakeInventory
         private void Report_DueDate_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DoubletakeDataSet.ClothesDueDate_Select' table. You can move, or remove it, as needed.
+            var constrg = new Decode();
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.Decrypt(Properties.Settings.Default.weinsteinsystem_credentialsConnectionString));
+            this.ClothesDueDate_SelectTableAdapter.Connection = con;
             this.ClothesDueDate_SelectTableAdapter.Fill(this.DoubletakeDataSet.ClothesDueDate_Select, DateTime.Parse(GlobalClass.ClothesReport_Date));
-
             this.reportViewer1.RefreshReport();
         }
 

@@ -127,9 +127,6 @@ namespace DoubleTakeInventory
                     }
                 }
             }
-
-
-            
         }
 
         private void MessageSuccess()
@@ -140,13 +137,12 @@ namespace DoubleTakeInventory
         private void MessageFailure()
         {
             MessageBox.Show("Action Failed!","Key Data Change", MessageBoxButtons.OK);
-            
         }
 
 
         private bool BulkArchive(int MonthValue)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.BulkArchive");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@pMonthValue", SqlDbType.Int).Value = MonthValue;
@@ -185,7 +181,7 @@ namespace DoubleTakeInventory
 
         private bool UpdateInventory(int ItemNumber, int OldConsignor, int NewConsignor)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Inventory_ChangeConsignor");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@pItemNumber", SqlDbType.Int).Value = ItemNumber;
@@ -225,7 +221,7 @@ namespace DoubleTakeInventory
 
         private bool RemoveConsignor(int ConsignorID)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Consignor_Delete");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@pConsignorID", SqlDbType.Int).Value = ConsignorID;
@@ -265,7 +261,7 @@ namespace DoubleTakeInventory
 
         private bool RemoveInventory(int ItemID)
         {
-            SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DoubleTake"].ToString());
+            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ArchInventory_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@pItemID", SqlDbType.Int).Value = ItemID;
@@ -333,8 +329,6 @@ namespace DoubleTakeInventory
             textBox3.Text = string.Empty;
             textBox4.Visible = true;
             textBox4.Text = string.Empty;
-            
-            
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -342,24 +336,15 @@ namespace DoubleTakeInventory
             AllHide();
             label2.Visible = true;
             textBox2.Visible = true;
-            
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-
             AllHide();
             label5.Visible = true;
             textBox5.Visible = true;
-            
         }
 
-
-
-        private void Delete_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {

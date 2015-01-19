@@ -19,6 +19,9 @@ namespace DoubleTakeInventory
         private void Report_PaymentsDue_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DoubletakeDataSet.PaymentsDue_Select' table. You can move, or remove it, as needed.
+            var constrg = new Decode();
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.Decrypt(Properties.Settings.Default.weinsteinsystem_credentialsConnectionString));
+            this.PaymentsDue_SelectTableAdapter.Connection = con;
             this.PaymentsDue_SelectTableAdapter.Fill(this.DoubletakeDataSet.PaymentsDue_Select, System.DateTime.Parse(GlobalClass.ClothesReport_Date.ToString()));
             this.reportViewer1.RefreshReport();
 

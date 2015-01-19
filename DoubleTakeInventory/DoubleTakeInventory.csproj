@@ -32,7 +32,7 @@
     <SuiteName>DoubleTake</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>82</ApplicationRevision>
+    <ApplicationRevision>83</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -83,7 +83,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic">
       <Private>True</Private>
     </Reference>
@@ -125,7 +125,6 @@
       <DependentUpon>BarCodePrinting.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsignorClasses\ConsignorUtilities.cs" />
-    <Compile Include="DatabaseClass.cs" />
     <Compile Include="DaysSales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +132,7 @@
       <DependentUpon>DaysSales.cs</DependentUpon>
     </Compile>
     <Compile Include="dbPOS.cs" />
+    <Compile Include="Decode.cs" />
     <Compile Include="Delete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,12 +155,6 @@
       <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="InventoryClasses\InventoryUtilities.cs" />
-    <Compile Include="KeypadControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KeypadControl.Designer.cs">
-      <DependentUpon>KeypadControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Report_InventorySelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,9 +346,6 @@
     <EmbeddedResource Include="DGInventory_Select.resx">
       <DependentUpon>DGInventory_Select.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KeypadControl.resx">
-      <DependentUpon>KeypadControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Report_InventorySelect.resx">
       <DependentUpon>Report_InventorySelect.cs</DependentUpon>
     </EmbeddedResource>
@@ -530,16 +521,6 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="Microsoft.ReportViewer.WinForms">
       <Visible>False</Visible>
       <Group>
       </Group>
