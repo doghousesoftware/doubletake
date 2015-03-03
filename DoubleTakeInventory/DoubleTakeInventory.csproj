@@ -155,6 +155,12 @@
       <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="InventoryClasses\InventoryUtilities.cs" />
+    <Compile Include="PaymentPickups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentPickups.Designer.cs">
+      <DependentUpon>PaymentPickups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report_InventorySelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DGInventory_Select.resx">
       <DependentUpon>DGInventory_Select.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentPickups.resx">
+      <DependentUpon>PaymentPickups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report_InventorySelect.resx">
       <DependentUpon>Report_InventorySelect.cs</DependentUpon>

@@ -90,12 +90,20 @@ namespace DoubleTakeInventory
 
                     while (dr.Read())
                     {
+                        /*
                         dataGridView1.Rows.Add(dr.GetSqlInt32(0).ToString(),
                                                 (int)dr.GetValue(1),
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetValue(5).ToString(),
                                                 dr.GetSqlMoney(3),
                                                 ConvertDateTime(dr.GetSqlDateTime(4).Value));
+
+                        */
+
+                        dataGridView1.Rows.Add(dr.GetSqlInt32(0).ToString(),
+                                                (int)dr.GetValue(1),
+                                                dr.GetValue(2).ToString(),
+                                                dr.GetValue(5).ToString());
                     }
                     
                 }
@@ -173,11 +181,18 @@ namespace DoubleTakeInventory
                     
                     while (dr.Read())
                     {
+                        
+                        /*
                         dataGridView1.Rows.Add(dr.GetSqlInt32(0),
                                                 dr.GetValue(1).ToString(),
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetSqlMoney(3),
                                                 dr.GetValue(4));
+
+                        */
+                        dataGridView1.Rows.Add(dr.GetSqlInt32(0),
+                                                dr.GetValue(1).ToString(),
+                                                dr.GetValue(2).ToString());
                     }
                 }
                 else
@@ -454,7 +469,13 @@ namespace DoubleTakeInventory
 
         private void managePaymentsAndPickupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("New Payment and Pickup Screen Here");
+            if (iRowClick != -9)
+            {
+                GlobalClass.ConsignerID = int.Parse(dataGridView1[0, iRowClick].Value.ToString());
+                PaymentPickups pmtPkup = new PaymentPickups();
+                pmtPkup.MdiParent = this.MdiParent;
+                pmtPkup.Show();    
+            }
         }
     }
 }
