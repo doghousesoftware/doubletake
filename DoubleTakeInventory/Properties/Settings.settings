@@ -23,7 +23,7 @@
       <Value Profile="(Default)">Issaquah, WA 98027</Value>
     </Setting>
     <Setting Name="AddressLine3" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">(425) 392-4908 doubletakevintage@clear.net</Value>
+      <Value Profile="(Default)">(425) 392-4908 info@doubletakevintage.com</Value>
     </Setting>
     <Setting Name="FooterLine1" Type="System.String" Scope="Application">
       <Value Profile="(Default)">         No Returns or Exchanges</Value>

@@ -71,7 +71,7 @@ namespace DoubleTakeInventory.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("(425) 392-4908 doubletakevintage@clear.net")]
+        [global::System.Configuration.DefaultSettingValueAttribute("(425) 392-4908 info@doubletakevintage.com")]
         public string AddressLine3 {
             get {
                 return ((string)(this["AddressLine3"]));
