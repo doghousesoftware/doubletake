@@ -14,6 +14,30 @@ namespace DoubleTakeInventory
     {
         int iRow;
         double PayRate;
+        static bool PreSelected { get; set; }
+        
+        enum ConsignorCols
+        {
+            ConsignorID,
+            LastName,
+            FirstName,
+            AmountDue,
+        };
+
+        enum InventoryCols
+        {
+            ConsignorID,
+            LastName,
+            FirstName,
+            ItemNumber,
+            ItemDescription,
+            AskingPrice,
+            SaleDate,
+            SaleAmount,
+            SoldStatus,
+            PayAmount
+        };
+
         public Payments()
         {
             InitializeComponent();
@@ -68,7 +92,6 @@ namespace DoubleTakeInventory
             {
                 MessageBox.Show(sx.Message.ToString(), "SQL Data Error", MessageBoxButtons.OK);
                 return false;
-
             }
             catch (Exception ex)
             {
@@ -88,23 +111,18 @@ namespace DoubleTakeInventory
 
         private bool DoValidations()
         {
-
             //Loop through the datagrid and check the dollar figures
-
             for (int icount = 0; icount < dgThePayment.Rows.Count - 1; icount++)
             {
                 try
                 {
                     decimal.Parse(dgThePayment[9, icount].Value.ToString());
-
                 }
                 catch
                 {
                     return false;
                 }
-
             }
-
             return true;
         }
 
@@ -131,6 +149,12 @@ namespace DoubleTakeInventory
                 contextMenuStrip1.Items["GetConsignorInfo"].Enabled = false;
             }
 
+            // set the max grid based on PreSelected
+            if (!PreSelected)
+            {
+                dgPayments.Width = this.Width - 50;
+                dgPayments.Height = this.Height - 50;
+            }
             mygc.ClearEverything();
         }
 
@@ -167,7 +191,7 @@ namespace DoubleTakeInventory
                                                 dr.GetSqlInt32(0).Value.ToString(),
                                                 dr.GetSqlValue(1).ToString(),
                                                 dr.GetSqlValue(2).ToString(),
-                                                sSaleAmount.ToString("0.00")
+                                                sSaleAmount.ToString("c")
                                        );
                     }
                 }
@@ -194,16 +218,15 @@ namespace DoubleTakeInventory
                         }
 
                         // BEGIN THE ROW ADD...............
-
                         dgPayments.Rows.Add(
                                                 dr.GetSqlInt32(0).Value.ToString(),
                                                 dr.GetSqlValue(1).ToString(),
                                                 dr.GetSqlValue(2).ToString(),
                                                 dr.GetInt32(3).ToString(),
                                                 dr.GetSqlValue(4).ToString(),
-                                                dr.GetSqlMoney(5).Value.ToString("0.00"),
+                                                dr.GetSqlMoney(5).Value.ToString("c"),
                                                 sSaleDate.ToString(),
-                                                sSaleAmount.ToString("0.00"),
+                                                sSaleAmount.ToString("c"),
                                                 dr.GetSqlValue(8).ToString());
                     }
                 }
@@ -232,14 +255,13 @@ namespace DoubleTakeInventory
         {
             if (HType == 1)
             {
-
                 dgPayments.Columns.Add(ConsignorCols.ConsignorID.ToString(), ConsignorCols.ConsignorID.ToString());
                 dgPayments.Columns[ConsignorCols.ConsignorID.ToString()].ReadOnly = true;
                 dgPayments.Columns[ConsignorCols.ConsignorID.ToString()].Width = 100;
 
                 dgPayments.Columns.Add(ConsignorCols.LastName.ToString(), ConsignorCols.LastName.ToString());
                 dgPayments.Columns[ConsignorCols.LastName.ToString()].ReadOnly = true;
-                dgPayments.Columns[ConsignorCols.LastName.ToString()].Width = 100;
+                dgPayments.Columns[ConsignorCols.LastName.ToString()].Width = 150;
 
                 dgPayments.Columns.Add(ConsignorCols.FirstName.ToString(), ConsignorCols.FirstName.ToString());
                 dgPayments.Columns[ConsignorCols.FirstName.ToString()].ReadOnly = true;
@@ -296,39 +318,15 @@ namespace DoubleTakeInventory
             }
         }
 
-
-        enum ConsignorCols
-        {
-            ConsignorID,
-            LastName,
-            FirstName,
-            AmountDue,
-        };
-
-
-        enum InventoryCols
-        {
-            ConsignorID,
-            LastName,
-            FirstName,
-            ItemNumber,
-            ItemDescription,
-            AskingPrice,
-            SaleDate,
-            SaleAmount,
-            SoldStatus,
-            PayAmount
-        };
-
         private void GetSalesInfo_Click(object sender, EventArgs e)
         {
             if (dgPayments[0, 0].Value != null)
             {
                 GlobalClass.ConsignerID = int.Parse(dgPayments[0, iRow].Value.ToString());
                 Payments myp = new Payments();
+                PreSelected = true;
                 myp.MdiParent = this.MdiParent;
                 myp.Show();
-
             }
         }
 
@@ -341,7 +339,15 @@ namespace DoubleTakeInventory
         private void Payments_Resize(object sender, EventArgs e)
         {
             dgPayments.Width = this.Width - 50;
-            dgThePayment.Width = this.Width - 50;
+            if (PreSelected)
+            {
+                dgThePayment.Width = this.Width - 50;
+                dgThePayment.Height = this.Height - 20;
+            }
+            else
+            {
+                dgPayments.Height = this.Height - 50;
+            }
         }
 
         private void GetConsignorInfo_Click(object sender, EventArgs e)
@@ -356,8 +362,6 @@ namespace DoubleTakeInventory
             }
             
         }
-
-
 
         private void ThePaymentGridSetup()
         {
@@ -469,4 +473,3 @@ namespace DoubleTakeInventory
         }
     }
 }
-

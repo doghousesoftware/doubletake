@@ -32,7 +32,7 @@
     <SuiteName>DoubleTake</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>83</ApplicationRevision>
+    <ApplicationRevision>84</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -160,6 +160,42 @@
     </Compile>
     <Compile Include="PaymentPickups.Designer.cs">
       <DependentUpon>PaymentPickups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueueItems\ClothesReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\ClothesReport.Designer.cs">
+      <DependentUpon>ClothesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueueItems\DaysSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\DaysSales.Designer.cs">
+      <DependentUpon>DaysSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueueItems\InventoryStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\InventoryStatus.Designer.cs">
+      <DependentUpon>InventoryStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueueItems\SalesReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\SalesReport.Designer.cs">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueueItems\SelectedInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\SelectedInventory.Designer.cs">
+      <DependentUpon>SelectedInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueueItems\UnpaidSalesReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\UnpaidSalesReport.Designer.cs">
+      <DependentUpon>UnpaidSalesReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Report_InventorySelect.cs">
       <SubType>Form</SubType>
@@ -354,6 +390,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentPickups.resx">
       <DependentUpon>PaymentPickups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\ClothesReport.resx">
+      <DependentUpon>ClothesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\DaysSales.resx">
+      <DependentUpon>DaysSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\InventoryStatus.resx">
+      <DependentUpon>InventoryStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\SalesReport.resx">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\SelectedInventory.resx">
+      <DependentUpon>SelectedInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\UnpaidSalesReport.resx">
+      <DependentUpon>UnpaidSalesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report_InventorySelect.resx">
       <DependentUpon>Report_InventorySelect.cs</DependentUpon>

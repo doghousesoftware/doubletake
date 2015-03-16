@@ -61,7 +61,7 @@
             this.dgPayments.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -77,6 +77,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgPayments.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgPayments.RowTemplate.Height = 38;
             this.dgPayments.Size = new System.Drawing.Size(773, 318);
             this.dgPayments.TabIndex = 2;
             this.dgPayments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPayments_CellContentClick);
@@ -88,8 +89,7 @@
             this.MarkAsPaid,
             this.GetConsignorInfo});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 92);
-            
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 70);
             // 
             // GetSalesInfo
             // 
