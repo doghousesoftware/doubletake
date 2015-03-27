@@ -36,7 +36,7 @@
             // cmdConsignorDays
             // 
             this.cmdConsignorDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdConsignorDays.Location = new System.Drawing.Point(511, 25);
+            this.cmdConsignorDays.Location = new System.Drawing.Point(556, 30);
             this.cmdConsignorDays.Name = "cmdConsignorDays";
             this.cmdConsignorDays.Size = new System.Drawing.Size(87, 58);
             this.cmdConsignorDays.TabIndex = 25;
@@ -47,7 +47,7 @@
             // txtConsignorID
             // 
             this.txtConsignorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsignorID.Location = new System.Drawing.Point(401, 53);
+            this.txtConsignorID.Location = new System.Drawing.Point(365, 46);
             this.txtConsignorID.Name = "txtConsignorID";
             this.txtConsignorID.Size = new System.Drawing.Size(100, 26);
             this.txtConsignorID.TabIndex = 24;
@@ -55,10 +55,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 13);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(374, 20);
+            this.label9.Size = new System.Drawing.Size(427, 20);
             this.label9.TabIndex = 23;
             this.label9.Text = "Consignor number for Days Sales (or 0 (zero) for all)";
             this.label9.Click += new System.EventHandler(this.label9_Click);
@@ -72,7 +72,7 @@
             this.Controls.Add(this.txtConsignorID);
             this.Controls.Add(this.label9);
             this.Name = "DaysSales";
-            this.Size = new System.Drawing.Size(620, 101);
+            this.Size = new System.Drawing.Size(670, 110);
             this.ResumeLayout(false);
             this.PerformLayout();
 

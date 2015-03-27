@@ -167,6 +167,12 @@
     <Compile Include="ReportQueueItems\ClothesReport.Designer.cs">
       <DependentUpon>ClothesReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportQueueItems\ConsignorTransactions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\ConsignorTransactions.Designer.cs">
+      <DependentUpon>ConsignorTransactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportQueueItems\DaysSales.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +190,12 @@
     </Compile>
     <Compile Include="ReportQueueItems\SalesReport.Designer.cs">
       <DependentUpon>SalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportQueueItems\SelectedConsignorReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportQueueItems\SelectedConsignorReport.Designer.cs">
+      <DependentUpon>SelectedConsignorReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportQueueItems\SelectedInventory.cs">
       <SubType>UserControl</SubType>
@@ -394,6 +406,9 @@
     <EmbeddedResource Include="ReportQueueItems\ClothesReport.resx">
       <DependentUpon>ClothesReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\ConsignorTransactions.resx">
+      <DependentUpon>ConsignorTransactions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportQueueItems\DaysSales.resx">
       <DependentUpon>DaysSales.cs</DependentUpon>
     </EmbeddedResource>
@@ -402,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportQueueItems\SalesReport.resx">
       <DependentUpon>SalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportQueueItems\SelectedConsignorReport.resx">
+      <DependentUpon>SelectedConsignorReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportQueueItems\SelectedInventory.resx">
       <DependentUpon>SelectedInventory.cs</DependentUpon>

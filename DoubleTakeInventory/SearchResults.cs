@@ -30,7 +30,6 @@ namespace DoubleTakeInventory
             dataGridView1.Height = this.Height - 60;
         }
 
-
         private void SearchResults_Load(object sender, EventArgs e)
         {
             GlobalClass gc = new GlobalClass();
@@ -40,7 +39,6 @@ namespace DoubleTakeInventory
                 SearchBarCodeID(GlobalClass.InventoryDescription);
                 gc.ClearEverything();
                 dataGridView1.ContextMenuStrip = contextMenuStrip2;
-                
             }
 
             if (GlobalClass.ConsignerSearchName != string.Empty)
@@ -49,7 +47,6 @@ namespace DoubleTakeInventory
                 SearchConsignerName(GlobalClass.ConsignerSearchName);
                 gc.ClearEverything();
                 dataGridView1.ContextMenuStrip = contextMenuStrip1;
-                
             }
 
             if (GlobalClass.ConsignerID != 0)
@@ -58,14 +55,10 @@ namespace DoubleTakeInventory
                 SearchConsignorID(GlobalClass.ConsignerID);
                 gc.ClearEverything();
                 dataGridView1.ContextMenuStrip = contextMenuStrip2;
-                
             }
-
 
             gc.ClearEverything();
             statusStrip1.Text = string.Empty;
-            
-            //else we do nothing
         }
 
         private void SearchBarCodeID(string BarCode)
@@ -85,9 +78,7 @@ namespace DoubleTakeInventory
 
                 if (dr.HasRows == true)
                 {
-
                     SetGridHeader(2);
-
                     while (dr.Read())
                     {
                         /*
@@ -96,28 +87,23 @@ namespace DoubleTakeInventory
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetValue(5).ToString(),
                                                 dr.GetSqlMoney(3),
-                                                ConvertDateTime(dr.GetSqlDateTime(4).Value));
+                                                dr.GetSqlDateTime(4).Value.ToShortDateString());
 
                         */
-
                         dataGridView1.Rows.Add(dr.GetSqlInt32(0).ToString(),
                                                 (int)dr.GetValue(1),
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetValue(5).ToString());
                     }
-                    
                 }
                 else
                 {
                     MessageBox.Show("No Inventory Found With that Search", "Search", MessageBoxButtons.OK);
-                   
                 }
-
             }
             catch (SqlException sx)
             {
                 MessageBox.Show(sx.Message.ToString(), "SQL Data Error", MessageBoxButtons.OK);
-
             }
             catch (Exception ex)
             {
@@ -132,33 +118,7 @@ namespace DoubleTakeInventory
             }
         }
 
-
-        private string ConvertDateTime(System.DateTime somedate)
-        {
-            //code the hardway a date into a proper string format
-            string sYear;
-            string sMonth;
-            string sDay;
-
-            sYear = somedate.Year.ToString();
-            sMonth = somedate.Month.ToString();
-            sDay = somedate.Day.ToString();
-
-            if (sMonth.Length == 1)
-            {
-                sMonth = "0" + sMonth;
-            }
-
-            if (sDay.Length == 1)
-            {
-                sDay = "0" + sDay;
-            }
-
-
-            
-            return sYear + "/" + sMonth + "/" + sDay;
-        }
-
+                
         private void SearchConsignerName(string CName)
         {
             SqlConnection cn = new SqlConnection(Decode.ConnectionString);
@@ -244,7 +204,7 @@ namespace DoubleTakeInventory
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetValue(10).ToString(),
                                                 dr.GetSqlMoney(3),
-                                                ConvertDateTime(dr.GetSqlDateTime(4).Value));
+                                                dr.GetSqlDateTime(4).Value.ToShortDateString());
                                                 DonateFlag = dr.GetBoolean(11);
 
                     }

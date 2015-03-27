@@ -35,17 +35,17 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(194, 20);
+            this.label10.Size = new System.Drawing.Size(219, 20);
             this.label10.TabIndex = 32;
             this.label10.Text = "Selected Inventory Report";
             // 
             // cmdSelectedInventory
             // 
             this.cmdSelectedInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSelectedInventory.Location = new System.Drawing.Point(495, 38);
+            this.cmdSelectedInventory.Location = new System.Drawing.Point(556, 30);
             this.cmdSelectedInventory.Name = "cmdSelectedInventory";
             this.cmdSelectedInventory.Size = new System.Drawing.Size(87, 58);
             this.cmdSelectedInventory.TabIndex = 31;
@@ -61,7 +61,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmdSelectedInventory);
             this.Name = "SelectedInventory";
-            this.Size = new System.Drawing.Size(592, 110);
+            this.Size = new System.Drawing.Size(670, 110);
             this.ResumeLayout(false);
             this.PerformLayout();
 

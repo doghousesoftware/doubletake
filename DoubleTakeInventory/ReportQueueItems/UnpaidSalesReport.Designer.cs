@@ -54,17 +54,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 20);
+            this.label5.Size = new System.Drawing.Size(176, 20);
             this.label5.TabIndex = 21;
             this.label5.Text = "Unpaid Sales Report";
             // 
             // cmdUnpaidSales
             // 
             this.cmdUnpaidSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdUnpaidSales.Location = new System.Drawing.Point(510, 27);
+            this.cmdUnpaidSales.Location = new System.Drawing.Point(556, 30);
             this.cmdUnpaidSales.Name = "cmdUnpaidSales";
             this.cmdUnpaidSales.Size = new System.Drawing.Size(87, 58);
             this.cmdUnpaidSales.TabIndex = 20;
@@ -82,7 +82,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmdUnpaidSales);
             this.Name = "UnpaidSalesReport";
-            this.Size = new System.Drawing.Size(634, 93);
+            this.Size = new System.Drawing.Size(670, 110);
             this.ResumeLayout(false);
             this.PerformLayout();
 

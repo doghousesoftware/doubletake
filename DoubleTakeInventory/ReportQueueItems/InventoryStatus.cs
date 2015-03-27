@@ -58,7 +58,7 @@ namespace DoubleTakeInventory.ReportQueueItems
                 GlobalClass.WhateverInt = int.Parse(cboSoldStatus.SelectedIndex.ToString());
 
                 Report_Status RS = new Report_Status();
-                Form parentForm = (this.Parent as Form);
+                Form parentForm = (Form)this.Parent.Parent.Parent.Parent;
                 RS.MdiParent = parentForm;
                 RS.Show();
             }

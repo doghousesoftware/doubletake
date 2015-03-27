@@ -28,7 +28,7 @@ namespace DoubleTakeInventory.ReportQueueItems
             GlobalClass.RegisterEnd = date2;
 
             Report_AllSales AS = new Report_AllSales();
-            Form parentForm = (this.Parent as Form);
+            Form parentForm = (Form)this.Parent.Parent.Parent.Parent;
             AS.MdiParent = parentForm;
             AS.Show();
         }

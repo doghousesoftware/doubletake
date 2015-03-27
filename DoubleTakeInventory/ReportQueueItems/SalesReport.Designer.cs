@@ -73,17 +73,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(229, 20);
+            this.label4.Size = new System.Drawing.Size(258, 20);
             this.label4.TabIndex = 17;
             this.label4.Text = "Sales Report (Range of Dates)";
             // 
             // cmdSalesRenge
             // 
             this.cmdSalesRenge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSalesRenge.Location = new System.Drawing.Point(551, 36);
+            this.cmdSalesRenge.Location = new System.Drawing.Point(556, 30);
             this.cmdSalesRenge.Name = "cmdSalesRenge";
             this.cmdSalesRenge.Size = new System.Drawing.Size(87, 58);
             this.cmdSalesRenge.TabIndex = 16;
@@ -103,7 +103,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmdSalesRenge);
             this.Name = "SalesReport";
-            this.Size = new System.Drawing.Size(665, 106);
+            this.Size = new System.Drawing.Size(670, 110);
             this.ResumeLayout(false);
             this.PerformLayout();
 

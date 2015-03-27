@@ -1,6 +1,6 @@
 ﻿namespace DoubleTakeInventory.ReportQueueItems
 {
-    partial class ClothesReport
+    partial class SelectedConsignorReport
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,47 +29,25 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.cmdClothesReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Select Date for Clothes Report";
+            this.label1.Size = new System.Drawing.Size(227, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Consignor Inventory Status";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(265, 48);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 4;
-            // 
-            // cmdClothesReport
-            // 
-            this.cmdClothesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClothesReport.Location = new System.Drawing.Point(556, 30);
-            this.cmdClothesReport.Name = "cmdClothesReport";
-            this.cmdClothesReport.Size = new System.Drawing.Size(87, 58);
-            this.cmdClothesReport.TabIndex = 3;
-            this.cmdClothesReport.Text = "View Report";
-            this.cmdClothesReport.UseVisualStyleBackColor = true;
-            this.cmdClothesReport.Click += new System.EventHandler(this.cmdClothesReport_Click);
-            // 
-            // ClothesReport
+            // SelectedConsignorReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.cmdClothesReport);
-            this.Name = "ClothesReport";
+            this.Name = "SelectedConsignorReport";
             this.Size = new System.Drawing.Size(670, 110);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -79,7 +57,5 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button cmdClothesReport;
     }
 }

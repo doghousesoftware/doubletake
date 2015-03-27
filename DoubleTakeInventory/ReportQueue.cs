@@ -41,7 +41,11 @@ namespace DoubleTakeInventory
             ReportQueueItems.UnpaidSalesReport us = new ReportQueueItems.UnpaidSalesReport();
             this.flowReportQueue.Controls.Add(us);
 
+            ReportQueueItems.ConsignorTransactions ct = new ReportQueueItems.ConsignorTransactions();
+            this.flowReportQueue.Controls.Add(ct);
 
+            ReportQueueItems.SelectedConsignorReport scr = new ReportQueueItems.SelectedConsignorReport();
+            this.flowReportQueue.Controls.Add(scr);
 
         }
 

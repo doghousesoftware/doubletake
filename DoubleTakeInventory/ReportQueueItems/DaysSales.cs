@@ -36,9 +36,10 @@ namespace DoubleTakeInventory.ReportQueueItems
 
             GlobalClass.ConsignerID = iConID;
             ReportDaysSales PDS = new ReportDaysSales();
-            Form parentForm = (this.Parent as Form);
+            Form parentForm = (Form)this.Parent.Parent.Parent.Parent;
             PDS.MdiParent = parentForm;
             PDS.Show();
+
         }
     }
 }

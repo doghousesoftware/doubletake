@@ -25,7 +25,5 @@ namespace DoubleTakeInventory
             this.ClothesDueDate_SelectTableAdapter.Fill(this.DoubletakeDataSet.ClothesDueDate_Select, DateTime.Parse(GlobalClass.ClothesReport_Date));
             this.reportViewer1.RefreshReport();
         }
-
-
     }
 }

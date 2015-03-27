@@ -19,7 +19,7 @@ namespace DoubleTakeInventory.ReportQueueItems
         private void cmdSelectedInventory_Click(object sender, EventArgs e)
         {
             DGInventory_Select tempReport = new DGInventory_Select();
-            Form parentForm = (this.Parent as Form);
+            Form parentForm = (Form)this.Parent.Parent.Parent.Parent;
             tempReport.MdiParent = parentForm;
             tempReport.Show();
         }
