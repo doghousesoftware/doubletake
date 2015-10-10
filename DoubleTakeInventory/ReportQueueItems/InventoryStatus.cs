@@ -19,7 +19,8 @@ namespace DoubleTakeInventory.ReportQueueItems
 
         private void LoadComboBox_Status()
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.SoldStatusComboBox");
             SqlDataReader dr;
             try

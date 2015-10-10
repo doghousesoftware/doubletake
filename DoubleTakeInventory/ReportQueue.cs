@@ -23,17 +23,17 @@ namespace DoubleTakeInventory
         private void ReportQueue_Load(object sender, EventArgs e)
         {
 
-            ReportQueueItems.ClothesReport cr = new ReportQueueItems.ClothesReport();
-            this.flowReportQueue.Controls.Add(cr);
+            //ReportQueueItems.ClothesReport cr = new ReportQueueItems.ClothesReport();
+            //this.flowReportQueue.Controls.Add(cr);
 
-            ReportQueueItems.DaysSales ds = new ReportQueueItems.DaysSales();
-            this.flowReportQueue.Controls.Add(ds);
+            //ReportQueueItems.DaysSales ds = new ReportQueueItems.DaysSales();
+            //this.flowReportQueue.Controls.Add(ds);
 
-            ReportQueueItems.InventoryStatus invs = new ReportQueueItems.InventoryStatus();
-            this.flowReportQueue.Controls.Add(invs);
+            //ReportQueueItems.InventoryStatus invs = new ReportQueueItems.InventoryStatus();
+            //this.flowReportQueue.Controls.Add(invs);
 
-            ReportQueueItems.SalesReport sr = new ReportQueueItems.SalesReport();
-            this.flowReportQueue.Controls.Add(sr);
+            //ReportQueueItems.SalesReport sr = new ReportQueueItems.SalesReport();
+            //this.flowReportQueue.Controls.Add(sr);
 
             ReportQueueItems.SelectedInventory si = new ReportQueueItems.SelectedInventory();
             this.flowReportQueue.Controls.Add(si);
@@ -44,8 +44,8 @@ namespace DoubleTakeInventory
             ReportQueueItems.ConsignorTransactions ct = new ReportQueueItems.ConsignorTransactions();
             this.flowReportQueue.Controls.Add(ct);
 
-            ReportQueueItems.SelectedConsignorReport scr = new ReportQueueItems.SelectedConsignorReport();
-            this.flowReportQueue.Controls.Add(scr);
+            //ReportQueueItems.SelectedConsignorReport scr = new ReportQueueItems.SelectedConsignorReport();
+            //this.flowReportQueue.Controls.Add(scr);
 
         }
 

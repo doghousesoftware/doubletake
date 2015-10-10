@@ -77,7 +77,8 @@ namespace DoubleTakeInventory
         private void SaveDaysSales()
         {
             int count;
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.OtherDaysSales_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@pSaleDate", SqlDbType.DateTime).Value = calMonth.SelectionStart.ToString();

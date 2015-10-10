@@ -47,5 +47,11 @@ namespace DoubleTakeInventory
             RS.MdiParent = this.MdiParent;
             RS.Show();
         }
+
+        
+        private void RegisterReportSelection_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

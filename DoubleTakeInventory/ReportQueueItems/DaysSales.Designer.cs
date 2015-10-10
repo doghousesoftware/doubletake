@@ -61,7 +61,6 @@
             this.label9.Size = new System.Drawing.Size(427, 20);
             this.label9.TabIndex = 23;
             this.label9.Text = "Consignor number for Days Sales (or 0 (zero) for all)";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // DaysSales
             // 

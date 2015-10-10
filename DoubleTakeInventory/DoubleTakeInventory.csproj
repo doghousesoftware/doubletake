@@ -25,15 +25,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://weinsteinsystems.blob.core.windows.net/doubletake/</InstallUrl>
+    <InstallUrl>https://weinsteinsystems.blob.core.windows.net/doubletake/</InstallUrl>
     <UpdateUrl>http://weinsteinsystems.blob.core.windows.net/doubletake/</UpdateUrl>
     <ProductName>Consignment Inventory Management System</ProductName>
     <PublisherName>weinsteinsystems</PublisherName>
     <SuiteName>DoubleTake</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>84</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.2.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -82,8 +82,14 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Private>True</Private>
     </Reference>
@@ -125,6 +131,12 @@
       <DependentUpon>BarCodePrinting.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsignorClasses\ConsignorUtilities.cs" />
+    <Compile Include="ReportForms\Report_ConsignorDetailReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForms\Report_ConsignorDetailReport.Designer.cs">
+      <DependentUpon>Report_ConsignorDetailReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaysSales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +157,7 @@
     <Compile Include="DGInventory_Select.Designer.cs">
       <DependentUpon>DGInventory_Select.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoubletakeDataSet.cs">
-      <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DoubletakeDataSet.Designer.cs">
+    <Compile Include="DoubletakeDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
@@ -209,11 +217,17 @@
     <Compile Include="ReportQueueItems\UnpaidSalesReport.Designer.cs">
       <DependentUpon>UnpaidSalesReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_InventorySelect.cs">
+    <Compile Include="ReportForms\Report_InventorySelect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_InventorySelect.Designer.cs">
+    <Compile Include="ReportForms\Report_InventorySelect.Designer.cs">
       <DependentUpon>Report_InventorySelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForms\Report_PickUpPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForms\Report_PickUpPayment.Designer.cs">
+      <DependentUpon>Report_PickUpPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="SalesRegisterForm.cs">
       <SubType>Form</SubType>
@@ -287,10 +301,10 @@
       <DependentUpon>RegisterAdjustment.cs</DependentUpon>
     </Compile>
     <Compile Include="RegisterPrint.cs" />
-    <Compile Include="RegisterReport.cs">
+    <Compile Include="ReportForms\RegisterReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterReport.Designer.cs">
+    <Compile Include="ReportForms\RegisterReport.Designer.cs">
       <DependentUpon>RegisterReport.cs</DependentUpon>
     </Compile>
     <Compile Include="RegisterReportSelection.cs">
@@ -299,10 +313,10 @@
     <Compile Include="RegisterReportSelection.Designer.cs">
       <DependentUpon>RegisterReportSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportDaysSales.cs">
+    <Compile Include="ReportForms\ReportDaysSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportDaysSales.Designer.cs">
+    <Compile Include="ReportForms\ReportDaysSales.Designer.cs">
       <DependentUpon>ReportDaysSales.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportQueue.cs">
@@ -311,46 +325,46 @@
     <Compile Include="ReportQueue.Designer.cs">
       <DependentUpon>ReportQueue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_AllSales.cs">
+    <Compile Include="ReportForms\Report_AllSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_AllSales.Designer.cs">
+    <Compile Include="ReportForms\Report_AllSales.Designer.cs">
       <DependentUpon>Report_AllSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_DueDate.cs">
+    <Compile Include="ReportForms\Report_DueDate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_DueDate.Designer.cs">
+    <Compile Include="ReportForms\Report_DueDate.Designer.cs">
       <DependentUpon>Report_DueDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_Global.cs">
+    <Compile Include="ReportForms\Report_Global.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_Global.Designer.cs">
+    <Compile Include="ReportForms\Report_Global.Designer.cs">
       <DependentUpon>Report_Global.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_PaymentsDue.cs">
+    <Compile Include="ReportForms\Report_PaymentsDue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_PaymentsDue.Designer.cs">
+    <Compile Include="ReportForms\Report_PaymentsDue.Designer.cs">
       <DependentUpon>Report_PaymentsDue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_RegisterSales.cs">
+    <Compile Include="ReportForms\Report_RegisterSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_RegisterSales.Designer.cs">
+    <Compile Include="ReportForms\Report_RegisterSales.Designer.cs">
       <DependentUpon>Report_RegisterSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_ShopSales.cs">
+    <Compile Include="ReportForms\Report_ShopSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_ShopSales.Designer.cs">
+    <Compile Include="ReportForms\Report_ShopSales.Designer.cs">
       <DependentUpon>Report_ShopSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_Status.cs">
+    <Compile Include="ReportForms\Report_Status.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_Status.Designer.cs">
+    <Compile Include="ReportForms\Report_Status.Designer.cs">
       <DependentUpon>Report_Status.cs</DependentUpon>
     </Compile>
     <Compile Include="ReturnItems.cs">
@@ -389,8 +403,15 @@
       <DependentUpon>BarCodePrinting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BarCodes.rdlc" />
-    <EmbeddedResource Include="ClothesDueDateReport.rdlc" />
-    <EmbeddedResource Include="ConsignorsDaysSales.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\ClothesDueDateReport.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\ConsignorGlobalReport_Selected.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\rptInvoiceDetails.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\rptPaymentPickups.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\SoldStatusReport.rdlc" />
+    <EmbeddedResource Include="ReportForms\Report_ConsignorDetailReport.resx">
+      <DependentUpon>Report_ConsignorDetailReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDefinitions\ConsignorsDaysSales.rdlc" />
     <EmbeddedResource Include="DaysSales.resx">
       <DependentUpon>DaysSales.cs</DependentUpon>
     </EmbeddedResource>
@@ -427,8 +448,11 @@
     <EmbeddedResource Include="ReportQueueItems\UnpaidSalesReport.resx">
       <DependentUpon>UnpaidSalesReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_InventorySelect.resx">
+    <EmbeddedResource Include="ReportForms\Report_InventorySelect.resx">
       <DependentUpon>Report_InventorySelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForms\Report_PickUpPayment.resx">
+      <DependentUpon>Report_PickUpPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesRegisterForm.resx">
       <DependentUpon>SalesRegisterForm.cs</DependentUpon>
@@ -470,42 +494,41 @@
     <EmbeddedResource Include="RegisterAdjustment.resx">
       <DependentUpon>RegisterAdjustment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegisterReport.resx">
+    <EmbeddedResource Include="ReportForms\RegisterReport.resx">
       <DependentUpon>RegisterReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CashRegister.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\CashRegister.rdlc" />
     <EmbeddedResource Include="RegisterReportSelection.resx">
       <DependentUpon>RegisterReportSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AllSalesReport.rdlc" />
-    <EmbeddedResource Include="rpsShopSales.rdlc" />
-    <EmbeddedResource Include="Report_ShopSales.resx">
+    <EmbeddedResource Include="ReportDefinitions\AllSalesReport.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\rptShopSales.rdlc" />
+    <EmbeddedResource Include="ReportForms\Report_ShopSales.resx">
       <DependentUpon>Report_ShopSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptInvoiceDetails.rdlc" />
-    <EmbeddedResource Include="ReportDaysSales.resx">
+    <EmbeddedResource Include="ReportForms\ReportDaysSales.resx">
       <DependentUpon>ReportDaysSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportQueue.resx">
       <DependentUpon>ReportQueue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_AllSales.resx">
+    <EmbeddedResource Include="ReportForms\Report_AllSales.resx">
       <DependentUpon>Report_AllSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_DueDate.resx">
+    <EmbeddedResource Include="ReportForms\Report_DueDate.resx">
       <DependentUpon>Report_DueDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Global.resx">
+    <EmbeddedResource Include="ReportForms\Report_Global.resx">
       <DependentUpon>Report_Global.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PaymentsDue.rdlc" />
-    <EmbeddedResource Include="Report_PaymentsDue.resx">
+    <EmbeddedResource Include="ReportDefinitions\PaymentsDue.rdlc" />
+    <EmbeddedResource Include="ReportForms\Report_PaymentsDue.resx">
       <DependentUpon>Report_PaymentsDue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_RegisterSales.resx">
+    <EmbeddedResource Include="ReportForms\Report_RegisterSales.resx">
       <DependentUpon>Report_RegisterSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Status.resx">
+    <EmbeddedResource Include="ReportForms\Report_Status.resx">
       <DependentUpon>Report_Status.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnItems.resx">
@@ -514,11 +537,10 @@
     <EmbeddedResource Include="SearchResults.resx">
       <DependentUpon>SearchResults.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SoldStatusReport.rdlc" />
     <EmbeddedResource Include="UpdateInventory.resx">
       <DependentUpon>UpdateInventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsignorGlobalReport.rdlc" />
+    <EmbeddedResource Include="ReportDefinitions\ConsignorGlobalReport.rdlc" />
     <EmbeddedResource Include="RegisterControl.resx">
       <DependentUpon>RegisterControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -531,8 +553,8 @@
     </None>
     <None Include="DoubletakeDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DoubletakeDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>DoubletakeDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DoubletakeDataSet.xss">
       <DependentUpon>DoubletakeDataSet.xsd</DependentUpon>
@@ -561,6 +583,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
       <Visible>False</Visible>
       <ProductName>Windows Installer 4.5</ProductName>
@@ -577,9 +604,7 @@
     <Content Include="Logo.bmp" />
     <Content Include="PrinterFile.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.Common">
       <Visible>False</Visible>
@@ -602,6 +627,16 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.WinForms">
       <Visible>False</Visible>
       <Group>
       </Group>

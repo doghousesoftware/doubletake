@@ -85,7 +85,8 @@ namespace DoubleTakeInventory
         /// <returns>Invoice ID</returns>
         public int RecordSale(int Saletype, double SubTotal, double Discount, double Taxes, double Total, DateTime dDateTime)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("dtuser.SalesRegister_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);
@@ -133,7 +134,8 @@ namespace DoubleTakeInventory
 
         public bool RecordSaleDetails(int InvoiceId, int LineItem, int ItemID, string Description, double Price, int Quantity, double Extended)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("dtuser.SalesDetails_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -179,7 +181,8 @@ namespace DoubleTakeInventory
         /// <returns></returns>
         public bool RecordOldSale(int ItemID, double Price)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("dtuser.ItemSold_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
 

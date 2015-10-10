@@ -71,7 +71,8 @@ namespace DoubleTakeInventory
 
         private bool SavePayments()
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Payment_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -163,7 +164,8 @@ namespace DoubleTakeInventory
             string sSaleDate;
             double sSaleAmount;
             //sql code to load consignor
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ConsignorSales_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -341,12 +343,19 @@ namespace DoubleTakeInventory
             dgPayments.Width = this.Width - 50;
             if (PreSelected)
             {
+                dgThePayment.Height = this.Height - 450;
                 dgThePayment.Width = this.Width - 50;
-                dgThePayment.Height = this.Height - 20;
+
+                cmdSave.Left = this.Width - 200;
+                cmdSave.Top = this.Height - 100;
+                
+                cmdCancel.Left = this.Width - 800;
+                cmdCancel.Top = this.Height - 100;
+
             }
             else
             {
-                dgPayments.Height = this.Height - 50;
+                dgPayments.Height = this.Height - 100;
             }
         }
 
@@ -420,6 +429,9 @@ namespace DoubleTakeInventory
             //check to see if we are at the last row
             if (dgPayments[0, iRow].Value != null)
             {
+                string sPrice = dgPayments[7, iRow].Value.ToString();
+                double dPrice = double.Parse(sPrice.Replace("$", string.Empty));
+
                 dgThePayment.Rows.Add(dgPayments[0, iRow].Value.ToString(),
                                         dgPayments[1, iRow].Value.ToString(),
                                         dgPayments[2, iRow].Value.ToString(),
@@ -429,7 +441,7 @@ namespace DoubleTakeInventory
                                         dgPayments[6, iRow].Value.ToString(),
                                         dgPayments[7, iRow].Value.ToString(),
                                         dgPayments[8, iRow].Value.ToString(),
-                                        double.Parse(dgPayments[7, iRow].Value.ToString()) * (PayRate));
+                                        dPrice * (PayRate));
 
                 dgPayments.Rows.RemoveAt(iRow);
             }
@@ -438,7 +450,8 @@ namespace DoubleTakeInventory
         private void GetPayRate()
         {
             //sql code to load consignor
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.PayRate_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

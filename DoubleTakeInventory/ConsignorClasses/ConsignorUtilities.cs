@@ -17,7 +17,8 @@ namespace DoubleTakeInventory.ConsignorClasses
         public virtual int AddNewConsignor(Consignor newconsignor)
         {
             int count;
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.NewConsignor_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);
@@ -73,7 +74,8 @@ namespace DoubleTakeInventory.ConsignorClasses
         public virtual bool Consignor_Update(Consignor c)
         {
             bool returnValue = false;
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Consignor_Update");
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -126,7 +128,8 @@ namespace DoubleTakeInventory.ConsignorClasses
         public virtual bool ValidConsignor(string consignorID)
         {
             bool returnValue = false;
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ConsignorTest");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnParam = new SqlParameter("@Return_Value", DbType.Int32);
@@ -167,7 +170,8 @@ namespace DoubleTakeInventory.ConsignorClasses
         public Consignor GetExistingConsignor(int ConsignorID)
         {
             var returnConsignor = new Consignor();
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.GetConsignor_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <connectionStrings>
+    <add name="DoubleTake" connectionString="data source=dawn00\sqlexpress;Integrated Security=SSPI;database=DoubleTake" providerName="sqloledb"/>
+    <add name="xDoubleTake" connectionString="data source=(local);Integrated Security=SSPI;database=DoubleTake" providerName="System.Data.SqlClient"/>
+  </connectionStrings>
+</configuration>

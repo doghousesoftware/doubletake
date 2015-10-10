@@ -1,0 +1,10 @@
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\bin\Debug\Properties\Settings.Designer.cs
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\bin\Debug\App.config
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\bin\Debug\Properties\Settings.settings
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\bin\Debug\DoubleTakeInventory.UnitTests.dll
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\bin\Debug\DoubleTakeInventory.UnitTests.pdb
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\bin\Debug\DoubleTakeInventory.exe
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\bin\Debug\DoubleTakeInventory.pdb
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\obj\Debug\DoubleTakeInventory.UnitTests.csprojResolveAssemblyReference.cache
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\obj\Debug\DoubleTakeInventory.UnitTests.dll
+D:\Users\bryanweinstein\Documents\Visual Studio 2012\Projects\DoubleTakeInventory\DoubleTakeInventory.UnitTests\obj\Debug\DoubleTakeInventory.UnitTests.pdb

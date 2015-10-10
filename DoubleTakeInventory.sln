@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleTakeInventory", "DoubleTakeInventory\DoubleTakeInventory.csproj", "{264B84D1-F22B-4EAD-A384-47138D367D64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleTakeInventory.UnitTests", "DoubleTakeInventory.UnitTests\DoubleTakeInventory.UnitTests.csproj", "{6967F88C-E943-4A67-89E0-87B977E69A8A}"

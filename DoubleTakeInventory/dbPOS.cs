@@ -12,7 +12,8 @@ namespace DoubleTakeInventory
     {
         public double SalesTaxRate()
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString); 
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString); 
             SqlCommand cmd = new SqlCommand("DTUser.SalesTaxRate_Select");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Decimal);

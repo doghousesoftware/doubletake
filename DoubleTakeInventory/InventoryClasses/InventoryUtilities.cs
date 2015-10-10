@@ -14,7 +14,8 @@ namespace DoubleTakeInventory.InventoryClasses
         public int SaveInventory(InventoryObject newInventory)
         {
             int newInventoryID = 0;
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Inventory_Insert");
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);
             returnValue.Direction = ParameterDirection.ReturnValue;
@@ -58,7 +59,8 @@ namespace DoubleTakeInventory.InventoryClasses
         public InventoryObject GetInventoryDetails(string itemID)
         {
             InventoryObject returnItem = new InventoryObject();
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ItemID_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -149,7 +151,8 @@ namespace DoubleTakeInventory.InventoryClasses
         /// <returns></returns>
         public bool UpdateInventory(InventoryObject io)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Inventory_Update");
             cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter returnValue = new SqlParameter("@Return_Value", DbType.Int32);

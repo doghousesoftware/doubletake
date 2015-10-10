@@ -44,7 +44,8 @@ namespace DoubleTakeInventory
 
         private void Process(int Receipt)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString); 
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("dtuser.Register_Update");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

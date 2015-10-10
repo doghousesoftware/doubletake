@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -125,6 +126,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RegisterReportSelection";
             this.Text = "RegisterReportSelection";
+            this.Load += new System.EventHandler(this.RegisterReportSelection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +142,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

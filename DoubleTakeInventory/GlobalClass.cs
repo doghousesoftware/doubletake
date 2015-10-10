@@ -20,6 +20,7 @@ namespace DoubleTakeInventory
         public static string LabelPrinter { get; set; }
         public static string ReportPrinter { get; set; }
         public static string RegisterPrinter { get; set; }
+        public static string WhateverString { get; set; }
         
         public void ClearEverything()
         {

@@ -50,7 +50,8 @@ namespace DoubleTakeInventory
             {
                 if (PreviousEnterCheck(txtScanBox.Text) == true)
                 {
-                    SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+                    var d = new Decode();
+                    SqlConnection cn = new SqlConnection(d.ConnectionString);
                     SqlCommand cmd = new SqlCommand("DTUSER.UnSoldItemID_Select");
                     SqlDataReader dr;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -99,7 +100,8 @@ namespace DoubleTakeInventory
         private void DonateItem(string ItemId)
         {
             //call the donateitem sproc for the itemnumber
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.DonateItem_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             try
@@ -193,7 +195,8 @@ namespace DoubleTakeInventory
               
         private bool SaveRows()
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ReturnItems_Insert");
             cmd.CommandType = CommandType.StoredProcedure;
             try

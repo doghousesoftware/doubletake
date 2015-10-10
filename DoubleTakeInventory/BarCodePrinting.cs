@@ -21,7 +21,9 @@ namespace DoubleTakeInventory
 
         private void BarCodePrinting_Load(object sender, EventArgs e)
         {
-            
+            var constrg = new Decode();
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.ConnectionString);
+            this.BarCodePrint_SelectTableAdapter.Connection = con;
             this.BarCodePrint_SelectTableAdapter.Fill(this.DoubletakeDataSet.BarCodePrint_Select,0);
             this.reportViewer1.RefreshReport();
             BarCode_Print();
@@ -32,7 +34,8 @@ namespace DoubleTakeInventory
         {
             UPCLabel.UpcLabel mylabel = new UPCLabel.UpcLabel();
             string sprice;
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString); 
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString); 
             SqlCommand cmd = new SqlCommand("DTUSER.BarCodePrint_Select");
             SqlDataReader dr ;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -80,7 +83,8 @@ namespace DoubleTakeInventory
 
             if (DR == DialogResult.Yes)
             {
-                SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+                var d = new Decode();
+                SqlConnection cn = new SqlConnection(d.ConnectionString);
                 SqlCommand cmd = new SqlCommand("DTUSER.WaitingToPrint_Clear");
                 
                 try

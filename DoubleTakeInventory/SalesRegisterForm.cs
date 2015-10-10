@@ -305,7 +305,7 @@ namespace DoubleTakeInventory
             {
                 SubTotal = TheSale.SubTotal();
                 SalesTaxes = (SubTotal + Discount) * SalesTaxRate;
-                SalesTaxes = Math.Round(SalesTaxes, 2);
+                SalesTaxes = Math.Round(SalesTaxes, 2, MidpointRounding.AwayFromZero);
                 TotalSale = SubTotal + Discount + SalesTaxes;
                 txtSubTotal.Text = SubTotal.ToString("c");
                 txtDiscount.Text = Discount.ToString("c");
@@ -448,7 +448,8 @@ namespace DoubleTakeInventory
         private SoldLineItem BarCodeScan(int ItemID)
         {
             SoldLineItem returnitem = new SoldLineItem();
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("dtuser.UnSoldItemID_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

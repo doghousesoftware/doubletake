@@ -94,7 +94,8 @@ namespace DoubleTakeInventory
 
         private void GetInventory()
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ArchInventory_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -181,7 +182,8 @@ namespace DoubleTakeInventory
 
         private bool GetConsignor()
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.Consignor_Info");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;

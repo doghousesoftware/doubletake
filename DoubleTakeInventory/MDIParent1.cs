@@ -27,13 +27,12 @@ namespace DoubleTakeInventory
             Decode d = new Decode();
             if (Properties.Settings.Default.DebugMode)
             {
-                d.Initialize("DoubleTakeTest");
+                d.ConnectionString = "DoubleTakeTest";
             }
             else
             {
-                d.Initialize("DoubleTake");
+                d.ConnectionString = "DoubleTake";
             }
-            
             
             dbPOS POSdb = new dbPOS();
             GlobalClass.SalesTax = POSdb.SalesTaxRate();

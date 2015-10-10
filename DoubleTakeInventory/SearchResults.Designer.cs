@@ -37,6 +37,7 @@
             this.enterNewInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateConsignorsInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportThisConsignorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportThisConsignorByItemStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateThisInventoryItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.managePaymentsAndPickupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -87,8 +87,8 @@
             this.updateConsignorToolStripMenuItem,
             this.enterNewInventoryToolStripMenuItem,
             this.updateConsignorsInventoryToolStripMenuItem,
-            this.managePaymentsAndPickupsToolStripMenuItem,
             this.reportThisConsignorToolStripMenuItem,
+            this.reportThisConsignorByItemStatusToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(507, 242);
@@ -120,6 +120,13 @@
             this.reportThisConsignorToolStripMenuItem.Size = new System.Drawing.Size(506, 36);
             this.reportThisConsignorToolStripMenuItem.Text = "Report This Consignor";
             this.reportThisConsignorToolStripMenuItem.Click += new System.EventHandler(this.reportThisConsignorToolStripMenuItem_Click);
+            // 
+            // reportThisConsignorByItemStatusToolStripMenuItem
+            // 
+            this.reportThisConsignorByItemStatusToolStripMenuItem.Name = "reportThisConsignorByItemStatusToolStripMenuItem";
+            this.reportThisConsignorByItemStatusToolStripMenuItem.Size = new System.Drawing.Size(506, 36);
+            this.reportThisConsignorByItemStatusToolStripMenuItem.Text = "Report This Consignor by Item Status";
+            this.reportThisConsignorByItemStatusToolStripMenuItem.Click += new System.EventHandler(this.reportThisConsignorByItemStatusToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
@@ -180,13 +187,6 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // managePaymentsAndPickupsToolStripMenuItem
-            // 
-            this.managePaymentsAndPickupsToolStripMenuItem.Name = "managePaymentsAndPickupsToolStripMenuItem";
-            this.managePaymentsAndPickupsToolStripMenuItem.Size = new System.Drawing.Size(506, 36);
-            this.managePaymentsAndPickupsToolStripMenuItem.Text = "Manage Payments and Pickups";
-            this.managePaymentsAndPickupsToolStripMenuItem.Click += new System.EventHandler(this.managePaymentsAndPickupsToolStripMenuItem_Click);
-            // 
             // SearchResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +225,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripMenuItem managePaymentsAndPickupsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportThisConsignorByItemStatusToolStripMenuItem;
     }
 }

@@ -63,7 +63,8 @@ namespace DoubleTakeInventory
 
         private void SearchBarCodeID(string BarCode)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ItemDescription_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -81,19 +82,13 @@ namespace DoubleTakeInventory
                     SetGridHeader(2);
                     while (dr.Read())
                     {
-                        /*
                         dataGridView1.Rows.Add(dr.GetSqlInt32(0).ToString(),
                                                 (int)dr.GetValue(1),
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetValue(5).ToString(),
                                                 dr.GetSqlMoney(3),
-                                                dr.GetSqlDateTime(4).Value.ToShortDateString());
-
-                        */
-                        dataGridView1.Rows.Add(dr.GetSqlInt32(0).ToString(),
-                                                (int)dr.GetValue(1),
-                                                dr.GetValue(2).ToString(),
-                                                dr.GetValue(5).ToString());
+                                                dr.GetSqlDateTime(4).Value.ToString("yyyy/MM/dd")); 
+                        
                     }
                 }
                 else
@@ -121,7 +116,8 @@ namespace DoubleTakeInventory
                 
         private void SearchConsignerName(string CName)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.ConsignorNames_Select");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -141,18 +137,11 @@ namespace DoubleTakeInventory
                     
                     while (dr.Read())
                     {
-                        
-                        /*
                         dataGridView1.Rows.Add(dr.GetSqlInt32(0),
                                                 dr.GetValue(1).ToString(),
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetSqlMoney(3),
                                                 dr.GetValue(4));
-
-                        */
-                        dataGridView1.Rows.Add(dr.GetSqlInt32(0),
-                                                dr.GetValue(1).ToString(),
-                                                dr.GetValue(2).ToString());
                     }
                 }
                 else
@@ -181,7 +170,8 @@ namespace DoubleTakeInventory
 
         private void SearchConsignorID(int CID)
         {
-            SqlConnection cn = new SqlConnection(Decode.ConnectionString);
+            var d = new Decode();
+            SqlConnection cn = new SqlConnection(d.ConnectionString);
             SqlCommand cmd = new SqlCommand("DTUSER.GetConsignorInventory");
             SqlDataReader dr;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -204,9 +194,8 @@ namespace DoubleTakeInventory
                                                 dr.GetValue(2).ToString(),
                                                 dr.GetValue(10).ToString(),
                                                 dr.GetSqlMoney(3),
-                                                dr.GetSqlDateTime(4).Value.ToShortDateString());
+                                                dr.GetSqlDateTime(4).Value.ToString("yyyy/MM/dd"));
                                                 DonateFlag = dr.GetBoolean(11);
-
                     }
                     if (DonateFlag == true)
                     {
@@ -255,10 +244,11 @@ namespace DoubleTakeInventory
                 dataGridView1.Columns.Add("Column03", "Amount Due");
                 dataGridView1.Columns["Column03"].Visible = true;
                 dataGridView1.Columns["Column03"].Width = 100;
-                dataGridView1.Columns["Column03"].DefaultCellStyle.Format = "$#.00";
+                dataGridView1.Columns["Column03"].DefaultCellStyle.Format = "$#,###.00"; 
+                dataGridView1.Columns["Column03"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
                 DataGridViewCheckBoxColumn col4 = new DataGridViewCheckBoxColumn();
-                col4.HeaderText = "Pickups";
+                col4.HeaderText = "Returns";
                 dataGridView1.Columns.Add(col4);
 
             }
@@ -284,12 +274,12 @@ namespace DoubleTakeInventory
                 dataGridView1.Columns.Add("Column03", "Ask Price");
                 dataGridView1.Columns["Column03"].Visible = true;
                 dataGridView1.Columns["Column03"].Width = 100;
-                dataGridView1.Columns["Column03"].DefaultCellStyle.Format = "$#.00";
+                dataGridView1.Columns["Column03"].DefaultCellStyle.Format = "$#,###.00";
                 dataGridView1.Columns["Column03"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
                 dataGridView1.Columns.Add("Column04", "Date In");
                 dataGridView1.Columns["Column04"].Visible = true;
-                dataGridView1.Columns["Column04"].Width = 100;
+                dataGridView1.Columns["Column04"].Width = 120;
             }
 
             dataGridView1.ContextMenuStrip = null;
@@ -427,14 +417,18 @@ namespace DoubleTakeInventory
             }
         }
 
-        private void managePaymentsAndPickupsToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void reportThisConsignorByItemStatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (iRowClick != -9)
             {
+                GlobalClass gc = new GlobalClass();
+                gc.ClearEverything();
                 GlobalClass.ConsignerID = int.Parse(dataGridView1[0, iRowClick].Value.ToString());
-                PaymentPickups pmtPkup = new PaymentPickups();
-                pmtPkup.MdiParent = this.MdiParent;
-                pmtPkup.Show();    
+                GlobalClass.WhateverInt = -1;
+                Report_ConsignorDetailReport cDetails = new Report_ConsignorDetailReport();
+                cDetails.MdiParent = this.MdiParent;
+                cDetails.Show();
             }
         }
     }

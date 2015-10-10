@@ -11,17 +11,25 @@ namespace DoubleTakeInventory
 {
     public class Decode
     {
-        public static string ConnectionString { get; set; }
+        private static string connectionString { get; set; }
+        public string ConnectionString { 
+            get 
+            {
+                return connectionString;
+            } 
+            set 
+            {
+                string encryptedValue = value;
+                connectionString = Decrypt(ConfigurationManager.ConnectionStrings[encryptedValue].ConnectionString);
+            }
+        }
+
         internal static readonly string PasswordHash = "9@$$30$6";
         internal static readonly string SaltKey = "21381842";
         internal static readonly string VIKey = "5e6a1w8d6g48w3fk";
 
-        public virtual void Initialize(string connString)
-        {
-            ConnectionString = Decrypt(ConfigurationManager.ConnectionStrings[connString].ConnectionString);
-        }
-
-        public string Decrypt(string encryptedText)
+        
+        private string Decrypt(string encryptedText)
         {
             try
             {

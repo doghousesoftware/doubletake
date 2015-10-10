@@ -37,7 +37,7 @@ namespace DoubleTakeInventory
             DateTime startDate = dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
             var constrg = new Decode();
-            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.Decrypt(Properties.Settings.Default.weinsteinsystem_credentialsConnectionString));
+            System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constrg.ConnectionString);
             this.inventory_SelectTableAdapter.Connection = con;
             this.inventory_SelectTableAdapter.Fill(this.doubletakeDataSet.Inventory_Select, SoldOnly, startDate, endDate);
             dataGridView1.Refresh();
